@@ -5,7 +5,7 @@ public class Main {
 
         Empresa unaEmpresa = new Empresa();
         System.out.println(unaEmpresa);
-        
+
         unaEmpresa.setNombreEmpresa("SalesForce");
         unaEmpresa.setDireccionEmpresa("Calle 24 # 56-87");
         unaEmpresa.setTelefonoEmpresa(311786543);
