@@ -26,7 +26,7 @@ Conoce a nuestro equipo de desarrollo:
 
 ### Spotify Playing 🎧
 
-[![Spotify](https://novatorem-bgstatic.vercel.app/api/spotify)](https://open.spotify.com/playlist/37i9dQZF1DWSPMbB1kcXmo)
+[![Spotify](https://novatorem-bgstatic.vercel.app/api/spotify)](https://open.spotify.com/track/5TpvLkESnw1g9wDz52efeO?si=75aaa41cd5fc4d19)
 
 
 ---
