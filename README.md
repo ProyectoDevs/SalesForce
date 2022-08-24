@@ -1,4 +1,4 @@
-<img align= "center" src="https://github.com/Mercyvm/ProyectoDevs/blob/main/1.jpg"> 
+<img align="center" src="https://github.com/Mercyvm/ProyectoDevs/blob/main/1.jpg"> 
 
 # Bienvenido al proyecto SalesForce <img width="30px" src="https://media.tenor.com/images/3b388fe03da271d2674faf85eb7c3fcd/tenor.gif" />
 
@@ -7,7 +7,6 @@
 ## En este proyecto se implementará un sistema de gestión de ingresos y egresos que permitirá al usuario administrar los gastos de su empresa y tomar decisiones sobre su situación financiera. 
 
 <img align="right" src="http://estruyf-github.azurewebsites.net/api/VisitorHit?user=Bgstatic&repo=Bgstatic&countColorcountColor&countColor=%237B1E7B"/>
-
 
 Conoce a nuestro equipo de desarrollo:
 
