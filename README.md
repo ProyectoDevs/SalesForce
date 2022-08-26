@@ -19,18 +19,6 @@ Conoce a nuestro equipo de desarrollo:
 - ⚡  Desarrollo de Software - Ciclo 3 - Mintic🎱.
 
 ---
-
-<img align="right" alt="GIF" height="170px" src="https://media.giphy.com/media/J5B1Y8QZnzXXbLQIBu/giphy.gif" />
-
-### Spotify Playing 🎧
-
-[![Spotify](https://novatorem-bgstatic.vercel.app/api/spotify)](https://open.spotify.com/track/5TpvLkESnw1g9wDz52efeO?si=75aaa41cd5fc4d19)
-
-
----
-
-
-
 ---
 
 ### Languages and Tools 🛠 
