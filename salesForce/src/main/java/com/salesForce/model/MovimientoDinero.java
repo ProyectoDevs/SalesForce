@@ -11,6 +11,9 @@ public class MovimientoDinero {
         this.usuarioMovimiento = usuarioMovimiento;
     }
 
+    public MovimientoDinero() {
+    }
+
     public float getMontoMovimiento() {
         return montoMovimiento;
     }

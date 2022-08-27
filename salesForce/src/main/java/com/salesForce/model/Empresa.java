@@ -3,14 +3,17 @@ package com.salesForce.model;
 public class Empresa {
     private String nombreEmpresa;
     private String direccionEmpresa;
-    private int telefonoEmpresa;
-    private long  nitEmpresa;
+    private String telefonoEmpresa;
+    private String  nitEmpresa;
 
-    public Empresa(String nombreEmpresa, String direccionEmpresa, int telefonoEmpresa, long nitEmpresa) {
+    public Empresa(String nombreEmpresa, String direccionEmpresa, String telefonoEmpresa, String nitEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
         this.nitEmpresa = nitEmpresa;
+    }
+
+    public Empresa() {
     }
 
     public String getNombreEmpresa() {
@@ -29,19 +32,19 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    public int getTelefonoEmpresa() {
+    public String getTelefonoEmpresa() {
         return telefonoEmpresa;
     }
 
-    public void setTelefonoEmpresa(int telefonoEmpresa) {
+    public void setTelefonoEmpresa(String telefonoEmpresa) {
         this.telefonoEmpresa = telefonoEmpresa;
     }
 
-    public long getNitEmpresa() {
+    public String getNitEmpresa() {
         return nitEmpresa;
     }
 
-    public void setNitEmpresa(long nitEmpresa) {
+    public void setNitEmpresa(String nitEmpresa) {
         this.nitEmpresa = nitEmpresa;
     }
 }
