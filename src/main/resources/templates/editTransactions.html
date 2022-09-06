@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Agregar nuevo Movimiento</h1>
+    <a th:href="@{/transaction}">Inicio Transacción</a>
+    <br>
+    <form th:action="@{/guardar}" method="post" th:object="${movimientos}">
+        <label>Monto: </label>
+        <input type="text" id="monto" name="monto" th:field="*{montoMovimiento}">
+    </form>
+</body>
+</html>
