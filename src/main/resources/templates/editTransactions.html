@@ -8,9 +8,6 @@
     <h1>Agregar nuevo Movimiento</h1>
     <a th:href="@{/transaction}">Inicio Transacción</a>
     <br>
-    <form th:action="@{/guardar}" method="post" th:object="${movimientos}">
-        <label>Monto: </label>
-        <input type="text" id="monto" name="monto" th:field="*{montoMovimiento}">
-    </form>
+
 </body>
 </html>

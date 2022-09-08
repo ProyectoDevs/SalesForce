@@ -7,7 +7,8 @@ import java.io.Serializable;
 
 @Data
 @Entity
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="transacction")
 
 public class MovimientoDinero implements Serializable {
@@ -16,16 +17,15 @@ public class MovimientoDinero implements Serializable {
     private Long id_transaction;
 
     @Column(name = "mount")
-    private float montoMovimiento;
+    private float mount;
 
     @Column(name = "concept")
-    private String conceptoMovimiento;
+    private String concept;
 
     @Column(name = "id_employee")
-    private Long usuarioMovimiento;
+    private Long id_employee;
 
     @Column(name = "id_enterprise")
-    private Long enterprise;
-
+    private Long id_enterprise;
 
 }
