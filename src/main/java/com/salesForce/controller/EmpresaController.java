@@ -40,6 +40,11 @@ public class EmpresaController {
         empresaService.editarNitEmpresa(id, nitEmpresa);
     }
 
+    @PatchMapping("/enterprises")
+    private void actualizarEmpresa (@RequestBody Empresa enterprise) {
+        empresaService.actualizarEmpresa(enterprise);
+    }
+
     @DeleteMapping("/enterprises/{id_empresa}")
     public void borrarEmpresa (@PathVariable ("id_empresa") Long id_empresa) {
         empresaService.borrarEmpresa(id_empresa);
