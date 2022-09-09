@@ -1,50 +1,33 @@
 package com.salesForce.entity;
 
+import com.salesForce.Enums.TipoEmpleado;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Empleado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Column(name = "nombreEmpleado")
     private String nombreEmpleado;
+
+    @Column(name = "emailEmpleado")
     private String emailEmpleado;
+
+    @Column(name = "empresaEmpleado")
     private String empresaEmpleado;
-    private String rolEmpleado;
 
-    public Empleado(String nombreEmpleado, String emailEmpleado, String empresaEmpleado, String rolEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-        this.emailEmpleado = emailEmpleado;
-        this.empresaEmpleado = empresaEmpleado;
-        this.rolEmpleado = rolEmpleado;
-    }
+    @Column(name = "rolEmpleado")
+    private TipoEmpleado rolEmpleado;
 
-    public Empleado() {
-    }
-
-    public String getNombreEmpleado() {
-        return nombreEmpleado;
-    }
-
-    public void setNombreEmpleado(String nombreEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-    }
-
-    public String getEmailEmpleado() {
-        return emailEmpleado;
-    }
-
-    public void setEmailEmpleado(String emailEmpleado) {
-        this.emailEmpleado = emailEmpleado;
-    }
-
-    public String getEmpresaEmpleado() {
-        return empresaEmpleado;
-    }
-
-    public void setEmpresaEmpleado(String empresaEmpleado) {
-        this.empresaEmpleado = empresaEmpleado;
-    }
-
-    public String getRolEmpleado() {
-        return rolEmpleado;
-    }
-
-    public void setRolEmpleado(String rolEmpleado) {
-        this.rolEmpleado = rolEmpleado;
-    }
+    @Column(name = "rolEmpleado")
+    private String password;
 }
