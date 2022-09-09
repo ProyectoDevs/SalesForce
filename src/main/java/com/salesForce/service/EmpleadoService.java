@@ -1,16 +1,13 @@
 package com.salesForce.service;
 
 import com.salesForce.entity.Empleado;
-import com.salesForce.entity.Empresa;
 import com.salesForce.repository.EmpleadoRepository;
-import com.salesForce.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmpleadoService {
-
 
     @Autowired
     EmpleadoRepository empleadoRepository;
