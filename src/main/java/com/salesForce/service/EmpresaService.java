@@ -31,6 +31,11 @@ public class EmpresaService {
         return new ArrayList<Empresa>(empresaRepository.findAll());
     }
 
+    //prueba
+    public void actualizarEmpresa(Empresa enterprise) {
+        empresaRepository.save(enterprise);
+    }
+
     public void borrarEmpresa (Long id_empresa) {
         empresaRepository.deleteById(id_empresa);
     }

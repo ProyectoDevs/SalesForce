@@ -28,6 +28,6 @@ public class Empleado {
     @Column(name = "rolEmpleado")
     private TipoEmpleado rolEmpleado;
 
-    @Column(name = "rolEmpleado")
+    @Column(name = "password")
     private String password;
 }
