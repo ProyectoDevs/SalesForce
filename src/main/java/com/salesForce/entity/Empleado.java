@@ -13,8 +13,8 @@ import javax.persistence.*;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "id_empleado", nullable = false)
+    private Long id_empleado;
 
     @Column(name = "nombreEmpleado")
     private String nombreEmpleado;
