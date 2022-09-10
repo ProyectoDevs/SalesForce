@@ -17,13 +17,15 @@ public class EmpleadoService {
         return empleadoRepository.findById(id_empleado).get();
     }
 
-    public void crearEmpleado (Empleado empleado ) {
+    public void crearEmpleado (Empleado empleado) {
         empleadoRepository.save(empleado);
     }
 
-    // public void editarNitEmpresa (Long id, String nitEmpresa) {
-    //        empleadoRepository.findById(id).get().setNitEmpresa(nitEmpresa);
-    // }
+    public Empleado editarNombreEmpleado (Long id, String nombreEmpleado) {
+        Empleado empleado = empleadoRepository.findById(id).get();
+        empleado.setNombreEmpleado(nombreEmpleado);
+        return empleado;
+    }
 
     public List<Empleado> consultarEmpleados (){
         return new ArrayList<Empleado>(empleadoRepository.findAll());

@@ -10,6 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table (name = "Empleado")
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
