@@ -3,17 +3,18 @@ package com.salesForce.service;
 import com.salesForce.entity.Empleado;
 import com.salesForce.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class EmpleadoService {
 
     @Autowired
     EmpleadoRepository empleadoRepository;
 
     public Empleado consultarEmpleado(Long id_empleado) {
-        return this.empleadoRepository.findById(id_empleado).get();
+        return empleadoRepository.findById(id_empleado).get();
     }
 
     public void crearEmpleado (Empleado empleado ) {
