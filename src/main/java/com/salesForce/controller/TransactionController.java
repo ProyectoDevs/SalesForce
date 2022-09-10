@@ -24,12 +24,6 @@ public class TransactionController {
         log.info("Ejecutando desde controlador");
         return this.movimientoDineroService.getLstMovimientos();
     }
-
-    /*@GetMapping("/transaction/{id_transaction}")
-    public void getMovimiento(@PathVariable("id_transaction") Long id_transaction) {
-        log.info("Ejecutando desde CONSULTA POR ID");
-        movimientoDineroService.getMovimiento(id_transaction);
-    }*/
     @GetMapping("/transaction/{id_transaction}")
     public MovimientoDinero getMovimientoById(@PathVariable("id_transaction") Long id_transaction) {
         return this.movimientoDineroService.getMovimiento(id_transaction);
@@ -50,5 +44,10 @@ public class TransactionController {
     public MovimientoDinero updateMovimiento(@RequestBody MovimientoDinero movimiento) {
         this.movimientoDineroService.updateMovimiento(movimiento);
         return movimiento;
+    }
+
+    @PatchMapping("/transaction/{id_transaction}/{conceptInput}")
+    public MovimientoDinero updateConceptById(@PathVariable("id_transaction") Long id_transaction, @PathVariable("conceptInput") String conceptInput) {
+        return movimientoDineroService.updatedMovimientoById(id_transaction,conceptInput);
     }
 }

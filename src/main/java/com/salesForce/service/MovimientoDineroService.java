@@ -36,6 +36,11 @@ public class MovimientoDineroService {
        repository.deleteById(id_transaction);
     }
 
+    public MovimientoDinero updatedMovimientoById(Long id_transaction, String conceptInput) {
+        MovimientoDinero movimiento = this.repository.findById(id_transaction).get();
+        movimiento.setConcept(conceptInput);
+        return repository.save(movimiento);
+    }
 
 
     // Consulta de los movimientos
