@@ -46,8 +46,8 @@ public class TransactionController {
         return movimiento;
     }
 
-    @PatchMapping("/transaction/{id_transaction}/{conceptInput}")
-    public MovimientoDinero updateConceptById(@PathVariable("id_transaction") Long id_transaction, @PathVariable("conceptInput") String conceptInput) {
-        return movimientoDineroService.updatedMovimientoById(id_transaction,conceptInput);
+    @PatchMapping("/transaction/{id_transaction}/{conceptInput}/{monto}")
+    public MovimientoDinero updateConceptById(@PathVariable("id_transaction") Long id_transaction, @PathVariable("conceptInput") String conceptInput, @PathVariable("monto") float monto) {
+        return movimientoDineroService.updatedMovimientoById(id_transaction,conceptInput,monto);
     }
 }

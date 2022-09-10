@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Entity
@@ -27,5 +28,11 @@ public class MovimientoDinero implements Serializable {
 
     @Column(name = "id_enterprise")
     private Long id_enterprise;
+
+    @Column(name = "createdAt")
+    private Date createdAt;
+
+    @Column(name = "updatedAt")
+    private Date updatedAt;
 
 }
