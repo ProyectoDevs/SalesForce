@@ -4,6 +4,73 @@
 
 ## En este proyecto se implementará un sistema de gestión de ingresos y egresos que permitirá al usuario administrar los gastos de su empresa y tomar decisiones sobre su situación financiera. 
 
+- 💬 **Las actividades solicitadas para el Backend de la aplicación son las siguientes:**
+
+🌱  **Crear controladores REST para la empresa** 
+
+- El sistema devuelve responses 200 en la ruta /enterprises con los siguientes verbos:
+
+GET
+<br />
+POST
+
+- El sistema devuelve responses 200 en la ruta /enterprises/[id] con los siguientes verbos:
+
+GET 
+<br />
+PATCH
+<br />
+DELETE
+
+🌱  **Crear controladores REST para los usuarios:**
+
+El sistema devuelve reponses 200 en la ruta /users con los siguientes verbos:
+
+GET
+<br />
+POST
+<br />
+
+El sistema devuelve responses 200 en la ruta /user/[id] con los siguientes verbos:
+
+GET
+<br />
+PATCH
+<br />
+DELETE
+<br />
+
+🌱  **Crear controladores REST para los movimientos de una empresa especifica:**
+
+El sistema devuelve reponses 200 en la ruta /enterprises/[id]/movements con los siguientes verbos:
+<br />
+GET
+<br />
+POST
+<br />
+PATCH
+<br />
+DELETE
+<br />
+
+🌱  **Crear servicios para la empresa:**
+
+El sistema permite consultar todas las empresas <br />
+El sistema permite consultar una sola empresa<br />
+El sistema permite crear una empresa<br />
+El sistema permite editar una empresa<br />
+El sistema permite eliminar una empresa<br />
+
+🌱 **Crear servicios para el usuario:**
+
+El sistema permite consultar todos los usuarios<br />
+El sistema permite consultar un solo usuario<br />
+El sistema permite crear un usuario<br />
+El sistema permite editar un usuario<br />
+El sistema permite eliminar un usuario<br />
+
+------------
+
 <img align="right" alt="GIF" height="160px" src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" />
 Conoce a nuestro equipo de desarrollo:
 
