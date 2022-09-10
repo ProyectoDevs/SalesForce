@@ -4,6 +4,8 @@ import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -16,35 +18,66 @@ public class MovimientoDineroService {
     }
 
     public List<MovimientoDinero> getLstMovimientos() {
+        List<MovimientoDinero> lista = this.repository.findAll();
+        if (lista.isEmpty()) {
+            throw new EntityNotFoundException("No hay registros por mostrar ");
+        }
         return this.repository.findAll();
     }
 
     public MovimientoDinero crearMovimiento(MovimientoDinero nuevoMovimiento) {
-        return this.repository.save(nuevoMovimiento);
+        try {
+            Long datetime = System.currentTimeMillis();
+            Timestamp timestamp = new Timestamp(datetime);
+            nuevoMovimiento.setCreatedAt(timestamp);
+            return this.repository.save(nuevoMovimiento);
+        }catch (Exception e) {
+            throw new EntityNotFoundException("Error: " + e);
+        }
     }
 
     // Consulta de movimiento por ID
     public MovimientoDinero getMovimiento(Long id_transaction) {
-        return this.repository.findById(id_transaction).get();
+        try {
+            return this.repository.findById(id_transaction).get();
+        } catch (Exception e) {
+            throw new EntityNotFoundException("Error: " + e);
+        }
     }
 
+    // Methodo para Actualizar todos los datos del objeto
     public void updateMovimiento(MovimientoDinero movimiento) {
-        repository.save(movimiento);
+        try {
+            Long datetime = System.currentTimeMillis();
+            Timestamp timestamp = new Timestamp(datetime);
+            movimiento.setUpdatedAt(timestamp);
+            repository.save(movimiento);
+        } catch (Exception e) {
+            throw new EntityNotFoundException("Error: " + e);
+        }
     }
 
+    // Metodo para Eliminar un registro por ID
    public void deleteMovimiento(Long id_transaction) {
-       repository.deleteById(id_transaction);
+       try {
+           repository.deleteById(id_transaction);
+       }catch (Exception e) {
+           throw new EntityNotFoundException("Error al eliminar" + e);
+       }
     }
 
-    public MovimientoDinero updatedMovimientoById(Long id_transaction, String conceptInput) {
+    //Metodo para actualizar CONCEPTO de la transacción
+    public MovimientoDinero updatedMovimientoById(Long id_transaction, String conceptInput, float monto) {
         MovimientoDinero movimiento = this.repository.findById(id_transaction).get();
         movimiento.setConcept(conceptInput);
+        movimiento.setMount(monto);
         return repository.save(movimiento);
     }
 
-
     // Consulta de los movimientos
     private static  MovimientoDinero movimientoDetail(MovimientoDinero movimiento) {
-        return new MovimientoDinero(movimiento.getId_transaction(),  movimiento.getMount(), movimiento.getConcept(), movimiento.getId_employee(),movimiento.getId_enterprise());
+        return new MovimientoDinero(movimiento.getId_transaction(),  movimiento.getMount(), movimiento.getConcept(),
+                movimiento.getId_employee(),movimiento.getId_enterprise(),
+                movimiento.getCreatedAt(),movimiento.getUpdatedAt());
     }
 }
