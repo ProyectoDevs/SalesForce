@@ -63,18 +63,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+<dependency>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+                
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+        			<configuration>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>${parent.version}</version>
 						</exclude>
 					</excludes>
 				</configuration>

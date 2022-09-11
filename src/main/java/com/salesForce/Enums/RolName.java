@@ -1,6 +1,6 @@
 package com.salesForce.Enums;
 
-public enum TipoEmpleado {
+public enum RolName {
     administrador,
     operativo
 }

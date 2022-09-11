@@ -70,13 +70,13 @@ public class MovimientoDineroService {
     public MovimientoDinero updatedMovimientoById(Long id_transaction, String conceptInput, float monto) {
         MovimientoDinero movimiento = this.repository.findById(id_transaction).get();
         movimiento.setConcept(conceptInput);
-        movimiento.setMount(monto);
+        movimiento.setAmount(monto);
         return repository.save(movimiento);
     }
 
     // Consulta de los movimientos
     private static  MovimientoDinero movimientoDetail(MovimientoDinero movimiento) {
-        return new MovimientoDinero(movimiento.getId_transaction(),  movimiento.getMount(), movimiento.getConcept(),
+        return new MovimientoDinero(movimiento.getId_transaction(),  movimiento.getAmount(), movimiento.getConcept(),
                 movimiento.getId_employee(),movimiento.getId_enterprise(),
                 movimiento.getCreatedAt(),movimiento.getUpdatedAt());
     }

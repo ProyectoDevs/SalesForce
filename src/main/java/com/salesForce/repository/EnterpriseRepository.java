@@ -1,9 +1,9 @@
 package com.salesForce.repository;
 
-import com.salesForce.entity.Empleado;
+import com.salesForce.entity.Enterprise;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmpleadoRepository extends JpaRepository <Empleado,Long> {
+public interface EnterpriseRepository extends JpaRepository<Enterprise, Long> {
 }

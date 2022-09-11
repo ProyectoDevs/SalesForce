@@ -10,15 +10,15 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="transacction")
+@Table(name="transaction")
 
 public class MovimientoDinero implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_transaction;
 
-    @Column(name = "mount")
-    private float mount;
+    @Column(name = "amount")
+    private float amount;
 
     @Column(name = "concept")
     private String concept;
