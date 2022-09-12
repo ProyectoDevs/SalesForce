@@ -24,9 +24,8 @@ public class Employee {
     @Column(name = "emailEmpleado")
     private String emailEmpleado;
 
-    @Column (name = "enterprise")
-    @JoinColumn (name = "id_enterprise")
-    private String enterprise;
+    @Column (name = "id_enterprise")
+    private Long id_enterprise;
 
     @Column(name = "role")
     private RolName role;

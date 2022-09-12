@@ -6,7 +6,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,6 +26,7 @@ public class MovimientoDinero implements Serializable {
 
     @Column(name = "id_employee")
     private Long id_employee;
+
 
     @Column(name = "id_enterprise")
     private Long id_enterprise;

@@ -17,8 +17,6 @@ public class TransactionController {
 
     @Autowired
     private MovimientoDineroService movimientoDineroService;
-
-
     @GetMapping("/transaction")
     public List<MovimientoDinero> listaMovimientos() {
         log.info("Ejecutando desde controlador");

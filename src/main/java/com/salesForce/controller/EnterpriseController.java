@@ -1,8 +1,10 @@
 package com.salesForce.controller;
 
 import com.salesForce.entity.Enterprise;
+import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.EnterpriseService;
+import com.salesForce.service.MovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,9 @@ public class EnterpriseController {
 
     @Autowired
     EnterpriseService enterpriseService;
+
+    @Autowired
+    MovimientoDineroService movimientoDineroService;
 
     // El sistema devuelve responses 200 en la ruta /enterprises con los siguientes verbos: |GET|POST|
 
@@ -51,4 +56,10 @@ public class EnterpriseController {
         enterpriseService.deleteEnterprise(id_enterprise);
         return enterpriseService.findEnterprises();
     }
+
+    @GetMapping("/enterprises/{id_enterprise}/{movements}")
+    public List<MovimientoDinero> listOfMovements (@PathVariable ("id_enterprise") Long id_enterprise, @PathVariable ("movements") Long id_enterprise1){
+        return movimientoDineroService.listOfMovements(id_enterprise);
+    }
+
 }

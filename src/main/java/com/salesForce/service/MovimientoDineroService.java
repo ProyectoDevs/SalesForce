@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -80,4 +81,18 @@ public class MovimientoDineroService {
                 movimiento.getId_employee(),movimiento.getId_enterprise(),
                 movimiento.getCreatedAt(),movimiento.getUpdatedAt());
     }
+
+
+
+    public List<MovimientoDinero> listOfMovements (Long id_enterprise) {
+        List<MovimientoDinero> listOfMovements = repository.findAll();
+        List<MovimientoDinero> listOfMovementsNew = new ArrayList<>();
+        for (int i=0; i<listOfMovements.size();i++){
+         if (id_enterprise == listOfMovements.get(i).getId_enterprise()){
+             listOfMovementsNew.add(listOfMovements.get(i));
+         }
+        }
+        return listOfMovementsNew;
+    }
+
 }
