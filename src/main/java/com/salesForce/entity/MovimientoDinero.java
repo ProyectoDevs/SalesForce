@@ -11,7 +11,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="transaction")
-
 public class MovimientoDinero implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

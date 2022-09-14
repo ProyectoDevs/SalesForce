@@ -1,6 +1,7 @@
 package com.salesForce.controller;
 
 import com.salesForce.entity.Enterprise;
+import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,11 @@ public class EnterpriseController {
         enterpriseService.deleteEnterprise(id_enterprise);
         return enterpriseService.findEnterprises();
     }
+
+    @GetMapping ("/enterprises_movements/{id_enterprise}")
+    public List<MovimientoDinero> findMovements (@PathVariable ("id_enterprise") Long id_enterprise) {
+        return enterpriseService.findMovements(id_enterprise);
+    }
+
+
 }
