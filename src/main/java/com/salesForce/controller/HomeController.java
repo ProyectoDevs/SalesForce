@@ -22,13 +22,8 @@ public class HomeController {
     private MovimientoDineroService movimientoDineroService;
 
     @GetMapping("/")
-<<<<<<< HEAD
-    public String verHome(Model model) {
-        var titulo = "Home";
-=======
     public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
-        var movimientos = movimientoDineroService.getLstMovimientos();
->>>>>>> db91d04c662125306f0197be6f9e9f7006508827
+        var titulo = "home";
         log.info("saludos desde Home");
         model.addAttribute("titulo", titulo);
         return "home";
