@@ -10,14 +10,19 @@
             <!-- Navbar -->
             <nav th:replace="layout/layout::navBar"></nav>
             <!-- End Navbar -->
-            <div th:replace="layout/layout.html::content">
+            <div style="margin-top:100px;padding:25px">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Nombre de la entidad</h4>
+                        <div class="d-flex">
+                            <div class="p-2 flex-fill"><h4>Movimientos realizados de prueba</h4></div>
+                            <div class="p-2">
+                                <a href="#" class="btn btn-primary">Nuevo</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <table class="table">
-                            <thead>
+                        <table class="table" style="padding:20px">
+                            <thead class="text-primary">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">First</th>
@@ -54,6 +59,5 @@
             <footer th:include="layout/layout::footer"></footer>
         </div>
     </div>
-
 </body>
 </html>
