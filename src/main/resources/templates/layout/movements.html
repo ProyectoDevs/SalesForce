@@ -24,29 +24,25 @@
                     <table class="table" style="padding:20px">
                         <thead class="text-primary">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Monto</th>
+                            <th scope="col">Concepto</th>
+                            <th scope="col">Id Empresa</th>
+                            <th scope="col">Empleado</th>
+                            <th>Opciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
+                        <tr th:each="movimiento: ${movimientos}">
+                            <td th:text="${movimiento.amount}">Mark</td>
+                            <td th:text="${movimiento.concept}"></td>
+                            <td th:text="${movimiento.id_enterprise}"></td>
+                            <td th:text="${movimiento.id_employee}"></td>
+                            <td>
+                                <a href="#" class="btn-info btn-sm">
+                                    <i class="nc-ruler-pencil"></i>
+                                    Editar</a>
+                                <a href="#" class="btn-danger btn-sm">Eliminar</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

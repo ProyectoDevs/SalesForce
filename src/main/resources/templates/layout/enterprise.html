@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="layout/layout::head(~{::title},~{::link})">
+  <title th:text="${titulo}"></title>
+</head>
+<body class="">
+<div class="wrapper ">
+  <div sec:authorize="!isAuthenticated()">
+    <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+  </div>
+  <div sec:authorize="isAuthenticated()">
+    <p>You are logged in!</p>
+  </div>
+
+  <div th:replace="layout/layout::sidebar"></div>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav th:replace="layout/layout::navBar"></nav>
+    <!-- End Navbar -->
+    <div style="margin-top:100px;padding:25px">
+
+
+      <div class="card">
+        <div class="card-header" style="background-color: lightskyblue">
+          <div class="d-flex">
+            <div class="p-2 flex-fill"><h4>Listado de Empresas</h4></div>
+            <div class="p-2">
+              <a href="#" class="btn btn-info">Nuevo</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" style="background-color: #1e7e34">
+          <table class="table" style="padding:20px">
+            <thead class="text-primary">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer" style="background-color: indianred">
+          <h5>fin de la card</h5>
+        </div>
+      </div>
+    </div>
+    <footer th:include="layout/layout::footer"></footer>
+  </div>
+</div>
+</body>
+</html>

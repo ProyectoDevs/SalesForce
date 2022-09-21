@@ -21,8 +21,9 @@ public class HomeController {
     @Autowired
     private MovimientoDineroService movimientoDineroService;
 
+    // @AuthenticationPrincipal OidcUser principal
     @GetMapping("/")
-    public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
+    public String verHome(Model model) {
         var titulo = "home";
         log.info("saludos desde Home");
         model.addAttribute("titulo", titulo);
@@ -42,5 +43,6 @@ public class HomeController {
         model.addAttribute("movimientos", movimientos);
         return "layout/movements";
     }
+
 }
 
