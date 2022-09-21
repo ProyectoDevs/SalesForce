@@ -71,19 +71,20 @@ public class MovimientoDineroService {
     public MovimientoDinero updatedMovimientoById(Long id_transaction, String conceptInput, float monto) {
         MovimientoDinero movimiento = this.repository.findById(id_transaction).get();
         movimiento.setConcept(conceptInput);
-        movimiento.setAmount(monto);
+        movimiento.setMount(monto);
         return repository.save(movimiento);
     }
 
     // Consulta de los movimientos
     private static  MovimientoDinero movimientoDetail(MovimientoDinero movimiento) {
-        return new MovimientoDinero(movimiento.getId_transaction(),  movimiento.getAmount(), movimiento.getConcept(),
-                movimiento.getId_employee(),movimiento.getId_enterprise(),
+        return new MovimientoDinero(movimiento.getId_transaction(),  movimiento.getMount(), movimiento.getConcept(),
+                movimiento.getEmployee(),
+                movimiento.getEnterprise(),
                 movimiento.getCreatedAt(),movimiento.getUpdatedAt());
     }
 
 
-
+/*
     public List<MovimientoDinero> listOfMovements (Long id_enterprise) {
         List<MovimientoDinero> listOfMovements = repository.findAll();
         List<MovimientoDinero> listOfMovementsNew = new ArrayList<>();
@@ -94,5 +95,5 @@ public class MovimientoDineroService {
         }
         return listOfMovementsNew;
     }
-
+*/
 }

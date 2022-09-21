@@ -4,15 +4,17 @@ import com.salesForce.Enums.RolName;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Table (name = "Employee")
-public class Employee {
+@Table (name = "employee")
+public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_employee", nullable = false)

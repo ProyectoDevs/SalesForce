@@ -23,7 +23,7 @@ public class HomeController {
 
     // @AuthenticationPrincipal OidcUser principal
     @GetMapping("/")
-    public String verHome(Model model) {
+    public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
         var titulo = "home";
         log.info("saludos desde Home");
         model.addAttribute("titulo", titulo);

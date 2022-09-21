@@ -3,7 +3,9 @@ package com.salesForce.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -12,7 +14,7 @@ import java.util.Date;
 @Setter
 @ToString
 @Table (name = "Enterprise")
-public class    Enterprise {
+public class Enterprise implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_enterprise", nullable = false)
@@ -35,4 +37,5 @@ public class    Enterprise {
 
     @Column(name = "updatedAt")
     private Date updatedAt;
+
 }

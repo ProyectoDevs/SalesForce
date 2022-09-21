@@ -23,9 +23,10 @@ public class TransactionController {
 
     @GetMapping("/transaction")
     public List<MovimientoDinero> listaMovimientos() {
+        var listaMovimientos = this.movimientoDineroService.getLstMovimientos();
         log.info("Ejecutando desde controlador");
 
-        return this.movimientoDineroService.getLstMovimientos();
+        return listaMovimientos;
     }
     @GetMapping("/transaction/{id_transaction}")
     public MovimientoDinero getMovimientoById(@PathVariable("id_transaction") Long id_transaction) {

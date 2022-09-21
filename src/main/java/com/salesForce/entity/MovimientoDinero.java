@@ -15,20 +15,22 @@ import java.util.Date;
 public class MovimientoDinero implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_transaction")
     private Long id_transaction;
 
-    @Column(name = "amount")
-    private float amount;
+    @Column(name = "mount")
+    private float mount;
 
     @Column(name = "concept")
     private String concept;
 
-    @Column(name = "id_employee")
-    private Long id_employee;
+    @ManyToOne
+    @JoinColumn
+    Employee employee;
 
-
-    @Column(name = "id_enterprise")
-    private Long id_enterprise;
+    @ManyToOne
+    @JoinColumn
+    Enterprise enterprise;
 
     @Column(name = "createdAt")
     private Date createdAt;

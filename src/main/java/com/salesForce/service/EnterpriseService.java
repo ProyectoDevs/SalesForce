@@ -7,6 +7,7 @@ import com.salesForce.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class EnterpriseService {
         return enterpriseRepository.save(enterprise);
     }
 
-    public List<MovimientoDinero> findMovements(Long id_enterprise) {
+    /*public List<MovimientoDinero> findMovements(Long id_enterprise) {
         List<MovimientoDinero> allMovements = repository.findAll();
         List<MovimientoDinero> newMovements = new ArrayList<MovimientoDinero>();
         for (int i = 0; i < allMovements.size(); i++) {
@@ -52,7 +53,8 @@ public class EnterpriseService {
             }
         }
         return newMovements;
-    }
+    }*/
+
 
         // Metodo elimina empresa
         public void deleteEnterprise (Long id_enterprise){

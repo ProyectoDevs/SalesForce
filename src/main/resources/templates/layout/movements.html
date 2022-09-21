@@ -2,6 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout/layout::head(~{::title},~{::link})">
     <title th:text="${titulo}"></title>
+    <!--  DataTables -->
+    <link th:href="@{/datatable/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/datatable/dataTables.bootstrap4.min.css}" rel="stylesheet" />
 </head>
 <body class="">
 <div class="wrapper ">
@@ -14,46 +17,59 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex">
-                        <div class="p-2 flex-fill"><h4>Empresas</h4></div>
+                        <div class="p-2 flex-fill"><h4>Lista de Movimientos</h4></div>
                         <div class="p-2">
-                            <a href="#" class="btn btn-info">Nuevo</a>
+                            <a class="btn btn-info" href="#">Nuevo</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <table class="table" style="padding:20px">
+                <div class="card-body" style="padding:25px">
+                    <table class="table" id="movementsTable" style="padding:20px">
                         <thead class="text-primary">
                         <tr>
-                            <th scope="col">Monto</th>
                             <th scope="col">Concepto</th>
-                            <th scope="col">Id Empresa</th>
+                            <th scope="col">Empresa</th>
                             <th scope="col">Empleado</th>
+                            <th scope="col">Monto</th>
                             <th>Opciones</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="movimiento: ${movimientos}">
-                            <td th:text="${movimiento.amount}">Mark</td>
                             <td th:text="${movimiento.concept}"></td>
-                            <td th:text="${movimiento.id_enterprise}"></td>
-                            <td th:text="${movimiento.id_employee}"></td>
+                            <td th:text="${movimiento.enterprise.name}"></td>
+                            <td th:text="${movimiento.employee.nombreEmpleado}"></td>
+                            <td th:text="${movimiento.mount}"></td>
                             <td>
-                                <a href="#" class="btn-info btn-sm">
+                                <a class="btn-info btn-sm" href="#">
                                     <i class="nc-ruler-pencil"></i>
                                     Editar</a>
-                                <a href="#" class="btn-danger btn-sm">Eliminar</a>
+                                <a class="btn-danger btn-sm" href="#">Eliminar</a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="card-footer">
-                    <h5>fin de la card</h5>
+
                 </div>
             </div>
         </div>
         <footer th:include="layout/layout::footer"></footer>
     </div>
 </div>
+<!-- Data Table -->
+<script th:src="@{/datatable/jquery-3.5.1.js}" type="text/javascript"></script>
+<script th:src="@{/datatable/jquery.dataTables.min.js}" type="text/javascript"></script>
+<script th:src="@{/datatable/dataTables.bootstrap4.min.js}" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+		$("#movementsTable").DataTable({
+		    language: {
+		        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+		    }
+		})
+	})
+</script>
 </body>
 </html>

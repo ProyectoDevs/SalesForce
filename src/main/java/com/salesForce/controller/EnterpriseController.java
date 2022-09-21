@@ -53,10 +53,12 @@ public class EnterpriseController {
         return enterpriseService.findEnterprises();
     }
 
-    @GetMapping ("/enterprises_movements/{id_enterprise}")
+    /*@GetMapping ("/enterprises_movements/{id_enterprise}")
     public List<MovimientoDinero> findMovements (@PathVariable ("id_enterprise") Long id_enterprise) {
         return enterpriseService.findMovements(id_enterprise);
     }
+
+     */
 
 
 }
