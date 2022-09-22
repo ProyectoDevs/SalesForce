@@ -5,33 +5,22 @@ import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.MovimientoDineroService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @Slf4j
+@RequestMapping("/movimientos")
 public class TransactionController {
 
     @Autowired
     private MovimientoDineroService movimientoDineroService;
 
-
-    @RequestMapping(value = "/mov", method = RequestMethod.GET)
-    public String movimiento(){
-        return "ResController";
-    }
-
-
     @GetMapping("/transaction")
     public List<MovimientoDinero> listaMovimientos() {
         var listaMovimientos = this.movimientoDineroService.getLstMovimientos();
         log.info("Ejecutando desde controlador");
-
         return listaMovimientos;
     }
     @GetMapping("/transaction/{id_transaction}")

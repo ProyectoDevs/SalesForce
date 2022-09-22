@@ -39,8 +39,10 @@ public class HomeController {
 
     @GetMapping("/movements")
     public String verMovements(Model model) {
+        var titulo = "Movimientos";
         var movimientos = movimientoDineroService.getLstMovimientos();
         model.addAttribute("movimientos", movimientos);
+        model.addAttribute("titulo",titulo);
         return "layout/movements";
     }
 
