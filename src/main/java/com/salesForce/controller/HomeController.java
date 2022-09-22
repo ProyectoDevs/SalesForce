@@ -34,7 +34,7 @@ public class HomeController {
     public String verEnterprise(Model model) {
         String title = "Empresas";
         model.addAttribute("title",title);
-        return "enterprise";
+        return "layout/enterprise";
     }
 
     @GetMapping("/movements")

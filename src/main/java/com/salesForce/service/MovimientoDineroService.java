@@ -20,9 +20,6 @@ public class MovimientoDineroService {
 
     public List<MovimientoDinero> getLstMovimientos() {
         List<MovimientoDinero> lista = this.repository.findAll();
-        if (lista.isEmpty()) {
-            throw new EntityNotFoundException("No hay registros por mostrar ");
-        }
         return this.repository.findAll();
     }
 

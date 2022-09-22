@@ -19,11 +19,20 @@
                     <div class="d-flex">
                         <div class="p-2 flex-fill"><h4>Lista de Movimientos</h4></div>
                         <div class="p-2">
-                            <a class="btn btn-info" href="#">Nuevo</a>
+                            <button type="button" class="btn btn-info" >
+                                Nuevo
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="card-body" style="padding:25px">
+
+                    <div class="text-gray text-center" th:if="${movimientos.isEmpty()}">
+                        <p>
+                            <h4>No hay registros por mostrar</h4>
+                        </p>
+                    </div>
+
                     <table class="table" id="movementsTable" style="padding:20px">
                         <thead class="text-primary">
                         <tr>
@@ -50,11 +59,15 @@
                         </tbody>
                     </table>
                 </div>
+
+
                 <div class="card-footer">
 
                 </div>
             </div>
         </div>
+
+
         <footer th:include="layout/layout::footer"></footer>
     </div>
 </div>
@@ -70,6 +83,6 @@
 		    }
 		})
 	})
-</script>
+</script></div>
 </body>
 </html>

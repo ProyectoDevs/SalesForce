@@ -21,6 +21,12 @@ public class TransactionController {
     private MovimientoDineroService movimientoDineroService;
 
 
+    @RequestMapping(value = "/mov", method = RequestMethod.GET)
+    public String movimiento(){
+        return "ResController";
+    }
+
+
     @GetMapping("/transaction")
     public List<MovimientoDinero> listaMovimientos() {
         var listaMovimientos = this.movimientoDineroService.getLstMovimientos();
@@ -34,7 +40,7 @@ public class TransactionController {
     }
 
 
-    @PostMapping("/transaction")
+    @PostMapping("/save-transaction")
     public MovimientoDinero crearMovimiento(@RequestBody MovimientoDinero movimiento){
         log.info("Ejecutando desde CREAR");
         return this.movimientoDineroService.crearMovimiento(movimiento);
