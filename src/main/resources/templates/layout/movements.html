@@ -23,6 +23,7 @@
                             <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal">
                                 Nuevo
                             </button>
+                            <a th:href="@{/new-movement}" class="btn btn-dark">Nuevo</a>
                         </div>
                     </div>
                 </div>
@@ -69,42 +70,6 @@
         </div>
 
         <!-- modal  -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="exampleModalLabel">Nuevo Movimiento</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form th:action="@{/saveTransaction}" th:object="movimiento" method="post">
-                            <div class="form-group">
-                                <label for="id_enterprise" class="col-form-label">Empresa:</label>
-                                <select th:field="*{}"></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="employee" class="col-form-label">Empleado:</label>
-                                <input type="text" class="form-control" id="employee">
-                            </div>
-                            <div class="form-group">
-                                <label for="concept" class="col-form-label">Concepto:</label>
-                                <textarea class="form-control" id="concept"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="mount" class="col-form-label">Monto:</label>
-                                <input class="form-control" id="mount"></input>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                        <input type="submit" value="Guardar" th:attr="value=#{saveTransaction.submit}" />
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- FIN MODAL -->
 

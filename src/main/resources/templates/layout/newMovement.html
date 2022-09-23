@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="layout/layout::head(~{::title},~{::link})">
+    <title th:text="${titulo}"></title>
+</head>
+<body class="">
+<div class="wrapper ">
+    <div sec:authorize="!isAuthenticated()">
+        <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <p>You are logged in!</p>
+    </div>
+
+    <div th:replace="layout/layout::sidebar"></div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav th:replace="layout/layout::navBar"></nav>
+        <!-- End Navbar -->
+        <div style="margin-top:100px;padding:25px">
+            <div class="card">
+                <div class="card-header" >
+                    <div class="d-flex">
+                        <div class="p-2 flex-fill text-info"><h4>Nuevo Movimiento</h4></div>
+                    </div>
+                </div>
+                <div class="card-body" >
+                    <!-- ZONA DE TRABAJO DE DATOS -->
+                    <div class="col-md-8">
+                        <div class="card card-user">
+                            <div class="card-header">
+                                <h5 class="card-title">Edit Profile</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Empresa</label>
+                                                <select class="custom-select" >
+                                                    <option th:text="Seleccione" th:select="false"></option>
+                                                    <option th:each="item: ${enterprises}"
+                                                            th:value="${item.id_enterprise}"
+                                                            th:text="${item.name}"
+                                                            th:select="false" />
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-1">
+                                            <div class="form-group">
+                                                <label>Empleado</label>
+                                                <select class="custom-select">
+                                                    <option th:text="Seleccione" th:select="false"></option>
+                                                    <option th:each="employee: ${employees}"
+                                                            th:value="${employee.id_employee}"
+                                                            th:text="${employee.nombreEmpleado}"
+                                                            th:select="false"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" class="form-control" placeholder="Home Address" value="Melbourne, Australia">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control" placeholder="City" value="Melbourne">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <input type="text" class="form-control" placeholder="Country" value="Australia">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label>Postal Code</label>
+                                                <input type="number" class="form-control" placeholder="ZIP Code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>About Me</label>
+                                                <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="update ml-auto mr-auto">
+                                            <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer" >
+                    <h5>fin de la card</h5>
+                </div>
+            </div>
+        </div>
+        <footer th:include="layout/layout::footer"></footer>
+    </div>
+</div>
+</body>
+</html>
