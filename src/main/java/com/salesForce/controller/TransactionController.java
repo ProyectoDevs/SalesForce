@@ -1,23 +1,33 @@
 package com.salesForce.controller;
 
 
+import com.salesForce.entity.Employee;
+import com.salesForce.entity.Enterprise;
 import com.salesForce.entity.MovimientoDinero;
+import com.salesForce.service.EmployeeService;
+import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.MovimientoDineroService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/movimientos")
+@RequestMapping("movimientos")
 public class TransactionController {
 
     @Autowired
     private MovimientoDineroService movimientoDineroService;
+    @Autowired
+    EnterpriseService enterpriseService;
+    @Autowired
+    EmployeeService employeeService;
 
-    @GetMapping("/transaction")
+    @GetMapping(produces = "application/json")
     public List<MovimientoDinero> listaMovimientos() {
         var listaMovimientos = this.movimientoDineroService.getLstMovimientos();
         log.info("Ejecutando desde controlador");
@@ -29,8 +39,8 @@ public class TransactionController {
     }
 
 
-    @PostMapping("/save-transaction")
-    public MovimientoDinero crearMovimiento(@RequestBody MovimientoDinero movimiento){
+    @PostMapping("/saveTransaction")
+    public MovimientoDinero crearMovimiento(@ModelAttribute MovimientoDinero movimiento){
         log.info("Ejecutando desde CREAR");
         return this.movimientoDineroService.crearMovimiento(movimiento);
     }
@@ -49,5 +59,11 @@ public class TransactionController {
     @PatchMapping("/transaction/{id_transaction}/{conceptInput}/{monto}")
     public MovimientoDinero updateConceptById(@PathVariable("id_transaction") Long id_transaction, @PathVariable("conceptInput") String conceptInput, @PathVariable("monto") float monto) {
         return movimientoDineroService.updatedMovimientoById(id_transaction,conceptInput,monto);
+    }
+
+    @RequestMapping(value = "/enterprises", method = RequestMethod.GET)
+    public List<Enterprise> OptionEnterprise(Model model) {
+        var enterpriseOptions = enterpriseService.findEnterprises();
+        return enterpriseOptions;
     }
 }
