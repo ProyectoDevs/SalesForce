@@ -45,6 +45,15 @@ public class HomeController {
         model.addAttribute("titulo",titulo);
         return "layout/movements";
     }
+@GetMapping("/icons.html")
+    public String verEmpleados(Model model) {
 
+        return "layout/employee";
+    }
+    @GetMapping("/crearempleado")
+    public String ingresarEmpleados(Model model) {
+
+        return "layout/formEmployee";
+    }
 }
 
