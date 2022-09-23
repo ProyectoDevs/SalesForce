@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="layout/layout::head(~{::title},~{::link})">
+    <title th:text="${titulo}"></title>
+</head>
+<body class="">
+<div class="wrapper ">
+    <div sec:authorize="!isAuthenticated()">
+        <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <p>You are logged in!</p>
+    </div>
+
+    <div th:replace="layout/layout::sidebar"></div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav th:replace="layout/layout::navBar"></nav>
+        <!-- End Navbar -->
+        <div style="margin-top:100px;padding:25px">
+            <div class="card">
+                <div class="card-header" style="background-color: #2ba9cd">
+                    <div class="d-flex">
+                        <div class="p-2 flex-fill"><strong><h3>Sistema de Gestión de Empleados</h3></div></strong>
+
+                        <div class="p-2">
+                            <a href="crearempleado" style="padding:10px" class="btn btn-primary">Nuevo Registro</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" style="background-color: $gray-100">
+                    <!-- ZONA DE TRABAJO DE DATOS -->
+
+                    <!--               TABLA-->
+                    <table class="table" id="movementsTable" style="padding:20px" box-shadow="5px 5px 15px 5px #0E0C14" >
+                        <thead class="text-primary">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Opciones</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>Administrador</td>
+                            <th><a class="btn-info btn-sm" href="#">
+                                <i class="nc-ruler-pencil"></i>
+                                Editar</a>
+                                <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>Operario</td>
+
+                            <th><a class="btn-info btn-sm" href="#">
+                                <i class="nc-ruler-pencil"></i>
+                                Editar</a>
+                                <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                            <td>Operario</td>
+
+                            <th><a class="btn-info btn-sm" href="#">
+                                <i class="nc-ruler-pencil"></i>
+                                Editar</a>
+                                <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+
+                </div>
+                <div class="card-footer" style="background-color: púrpura-100">
+
+                </div>
+            </div>
+        </div>
+        <footer th:include="layout/layout::footer"></footer>
+    </div>
+</div>
+</body>
+</html>
