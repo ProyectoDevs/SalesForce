@@ -5,7 +5,9 @@ import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +29,10 @@ public class EnterpriseController {
 
     // Crea una empresa
     @PostMapping("/enterprises")
-    public List<Enterprise> createEmpresa (@RequestBody Enterprise enterprise){
-        enterpriseService.createEnterprise (enterprise);
-        return enterpriseService.findEnterprises();
+    public RedirectView createEmpresa (@ModelAttribute Enterprise enterprise, Model model){
+        model.addAttribute(enterprise);
+        this.enterpriseService.createEnterprise(enterprise);
+        return new RedirectView("/empresas");
     }
 
     // El sistema devuelve responses 200 en la ruta /enterprises/[id] con los siguientes verbos: |GET|PATCH|DELETE|

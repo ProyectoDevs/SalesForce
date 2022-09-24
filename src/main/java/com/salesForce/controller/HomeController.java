@@ -6,6 +6,7 @@ import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.MovimientoDineroService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -41,6 +42,13 @@ public class HomeController {
         String title = "Empresas";
         model.addAttribute("title",title);
         return "layout/enterprise";
+    }
+    @GetMapping("/crear")
+    public String crearEmpresa(Model model){
+        var titulo = "Enterprises";
+        model.addAttribute("/titulo", titulo);
+        return "crearEmpresa";
+
     }
 
     @GetMapping("/icons.html")
