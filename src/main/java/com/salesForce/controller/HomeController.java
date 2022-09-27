@@ -1,6 +1,7 @@
 package com.salesForce.controller;
 
 
+import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EmployeeService;
 import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.MovimientoDineroService;
@@ -12,8 +13,7 @@ import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -58,7 +58,6 @@ public class HomeController {
     }
     @GetMapping("/crearempleado")
     public String ingresarEmpleados(Model model) {
-
         return "layout/formEmployee";
     }
 
@@ -69,16 +68,29 @@ public class HomeController {
         var movimientos = movimientoDineroService.getLstMovimientos();
         model.addAttribute("movimientos", movimientos);
         model.addAttribute("titulo",titulo);
-        return "layout/movements";
+        return "layout/movements/movements";
     }
 
-    @GetMapping("/new-movement")
-    public String newMovement(Model model) {
-        var titulo = "Crear Movimiento";
+    @GetMapping(value="/new-movement")
+    public ModelAndView newMovement(Model model, MovimientoDinero movimientoDinero) {
         var enterprises = enterpriseService.findEnterprises();
         model.addAttribute("enterprises",enterprises);
         var employees = employeeService.consultarEmpleados();
         model.addAttribute("employees",employees);
-        return "layout/newMovement";
+        model.addAttribute("movimientoDinero",new MovimientoDinero());
+        return new ModelAndView("layout/movements/newMovement");
     }
+
+    @GetMapping(value = "/update-movement/{id_transaction}")
+    public String movementById(@PathVariable("id_transaction") Long id_transaction, Model model) {
+        MovimientoDinero movimientoDinero = movimientoDineroService.getMovimientoById(id_transaction);
+        model.addAttribute("movimientoDinero", movimientoDinero);
+        var enterprises = enterpriseService.findEnterprises();
+        model.addAttribute("enterprises",enterprises);
+        var employees = employeeService.consultarEmpleados();
+        model.addAttribute("employees",employees);
+        return "layout/movements/updateMovement";
+    }
+
+
 }

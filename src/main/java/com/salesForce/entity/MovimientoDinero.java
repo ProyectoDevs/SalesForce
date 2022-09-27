@@ -11,7 +11,9 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="transaction")
+@Table(name = "transaction", indexes = {
+        @Index(name = "idx_movimientodinero", columnList = "enterprise_id_enterprise")
+})
 public class MovimientoDinero implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +27,17 @@ public class MovimientoDinero implements Serializable {
     private String concept;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "employee_id_employee")
     Employee employee;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "enterprise_id_enterprise")
     Enterprise enterprise;
 
-    @Column(name = "createdAt")
-    private Date createdAt;
+    @Column(name = "updated_at")
+    private Date updated_at;
 
-    @Column(name = "updatedAt")
-    private Date updatedAt;
+    @Column(name = "created_at")
+    private Date created_at;
 
 }

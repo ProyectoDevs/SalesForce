@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-header" style="background-color: #2ba9cd" >
                     <div class="d-flex">
-                        <div class="p-2 flex-fill"><h4>Crear Empleado</h4></div>
+                        <div class="p-2 flex-fill" <h4>Crear Empleado</h4></div>
                         <div class="p-2">
 
                         </div>
@@ -33,21 +33,24 @@
                     <!-- ZONA DE TRABAJO DE DATOS -->
 
                     <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Nombre</label>
-                            <input type="nombre" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlInput1">Nombre</label>
+                                <input type="nombre" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlInput1">Apellidos</label>
+                                <input type="apellido" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Apellidos</label>
-                            <input type="apellido" class="form-control" id="exampleFormControlInput1" placeholder="">
-                        </div>
+
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email address</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Rol</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="custom-select" id="exampleFormControlSelect1">
 
                                 <option>Operario</option>
                                 <option>Administrador</option>

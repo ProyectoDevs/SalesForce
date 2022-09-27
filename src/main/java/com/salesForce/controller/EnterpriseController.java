@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/enterprise")
 public class EnterpriseController {
 
     @Autowired

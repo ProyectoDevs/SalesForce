@@ -20,10 +20,7 @@
                     <div class="d-flex">
                         <div class="p-2 flex-fill"><h4>Lista de Movimientos</h4></div>
                         <div class="p-2">
-                            <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#exampleModal">
-                                Nuevo
-                            </button>
-                            <a th:href="@{/new-movement}" class="btn btn-dark">Nuevo</a>
+                            <a th:href="@{/new-movement}" class="btn btn-info">Nuevo</a>
                         </div>
                     </div>
                 </div>
@@ -31,13 +28,14 @@
 
                     <div class="text-gray text-center" th:if="${movimientos.isEmpty()}">
                         <p>
-                            <h4>No hay registros por mostrar</h4>
+                        <h4>No hay registros por mostrar</h4>
                         </p>
                     </div>
 
                     <table class="table" id="movementsTable" style="padding:20px">
                         <thead class="text-primary">
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Concepto</th>
                             <th scope="col">Empresa</th>
                             <th scope="col">Empleado</th>
@@ -47,15 +45,16 @@
                         </thead>
                         <tbody>
                         <tr th:each="movimiento: ${movimientos}">
+                            <td th:text="${movimiento.id_transaction}"></td>
                             <td th:text="${movimiento.concept}"></td>
                             <td th:text="${movimiento.enterprise.name}"></td>
                             <td th:text="${movimiento.employee.nombreEmpleado}"></td>
                             <td th:text="${movimiento.mount}"></td>
                             <td>
-                                <a class="btn-info btn-sm" href="#">
+                                <a class="btn-info btn-sm" th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">
                                     <i class="nc-ruler-pencil"></i>
                                     Editar</a>
-                                <a class="btn-danger btn-sm" href="#">Eliminar</a>
+                                <a class="btn-danger btn-sm" th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">Eliminar</a>
                             </td>
                         </tr>
                         </tbody>
@@ -83,12 +82,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function() {
-		$("#movementsTable").DataTable({
-		    language: {
-		        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-		    }
-		})
-	})
+        $("#movementsTable").DataTable({
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }
+        })
+    })
 </script></div>
 </body>
 </html>
