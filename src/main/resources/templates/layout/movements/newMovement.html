@@ -18,52 +18,40 @@
                         <div class="pb-1 flex-fill text-primary"><h5>Nuevo Movimiento</h5></div>
                     </div>
                 </div>
-                <div class="card-body" >
+                <div class="card-body ">
                     <!-- ZONA DE TRABAJO DE DATOS -->
-                    <div class="col-md-10 align-items-center ">
+                    <div class="col-md-4 border-light" style="margin: 0 auto; border: solid 1px #3b5998; background-color: #f4f4f4">
                         <form th:action="@{/movimientos/transaction}" method="post" >
-                            <div class="row ">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Empresa</label>
-                                        <select class="custom-select" placeholder="Seleccione..." th:field="${movimientoDinero.enterprise}">
-                                            <option value="0" class="text-muted">Seleccione..</option>
-                                            <option th:each="item: ${enterprises}"
-                                                    th:select="false"
-                                                    th:text="${item.name}"
-                                                    th:value="${item.id_enterprise}" />
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Empleado</label>
-                                        <select class="custom-select" th:placeholder="Seleccione..." th:field="${movimientoDinero.employee}">
-                                            <option value="0" class="text-muted">Seleccione..</option>
-                                            <option th:each="employee: ${employees}"
-                                                    th:select="false"
-                                                    th:text="${employee.nombreEmpleado}"
-                                                    th:value="${employee.id_employee}"></option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label>Empresa</label>
+                                <select class="custom-select" placeholder="Seleccione..." th:field="${movimientoDinero.enterprise}">
+                                    <option value="0" class="text-muted">Seleccione..</option>
+                                    <option th:each="item: ${enterprises}"
+                                            th:text="${item.name}"
+                                            th:value="${item.id_enterprise}" />
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Empleado</label>
+                                <select class="custom-select" th:placeholder="Seleccione..." th:field="${movimientoDinero.employee}">
+                                    <option value="0" class="text-muted">Seleccione..</option>
+                                    <option th:each="employee: ${employees}"
+                                            th:select="false"
+                                            th:text="${employee.nombreEmpleado}"
+                                            th:value="${employee.id_employee}"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Concepto</label>
+                                <textarea class="form-control textarea" th:field="${movimientoDinero.concept}"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Monto</label>
+                                <input class="form-control" placeholder="Ingresa el valor" th:field="${movimientoDinero.mount}" type="number">
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Concepto</label>
-                                        <textarea class="form-control textarea" th:field="${movimientoDinero.concept}"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Monto</label>
-                                        <input class="form-control" placeholder="Ingresa el valor" th:field="${movimientoDinero.mount}" type="number">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="update ml-auto mr-auto">
+                                <div class="col-md-6 update" style="margin: 0 auto">
+                                    <a href="#" class="btn btn-secondary btn-round">Cancelar</a>
                                     <button class="btn btn-primary btn-round" type="submit">Guardar</button>
                                 </div>
                             </div>
@@ -71,7 +59,7 @@
                     </div>
                 </div>
                 <div class="card-footer" >
-                    <h5>fin de la card</h5>
+
                 </div>
             </div>
         </div>
