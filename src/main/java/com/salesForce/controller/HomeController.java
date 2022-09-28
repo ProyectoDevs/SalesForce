@@ -1,8 +1,15 @@
 package com.salesForce.controller;
 
 
+<<<<<<< HEAD
 import com.salesForce.entity.Employee;
+=======
+<<<<<<< HEAD
+import com.salesForce.entity.Employee;
+=======
+>>>>>>> 1934d33cd29d736d54e2b9aa0b63611d32cfe99f
 import com.salesForce.entity.Enterprise;
+>>>>>>> ec5e1db005e59abf2d13d2cd92998f75b69d2a1f
 import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EmployeeService;
 import com.salesForce.service.EnterpriseService;
@@ -47,7 +54,22 @@ public class HomeController {
         return "layout/enterprises/enterprise";
     }
 
+<<<<<<< HEAD
+    @GetMapping("/empleados")
+    public String verEmpleados(Model model, Employee employee) {
+        model.addAttribute("empleado", new Employee());
+        return "layout/employee";
+    }
+    @GetMapping("/crearempleado")
+    public String ingresarEmpleados(Model model) {
+        return "layout/formEmployee";
+    }
+
+    // Metodos para Movements - Luis Gabriel
+    @GetMapping("/movements")
+=======
     @GetMapping("/movimientos")
+>>>>>>> ec5e1db005e59abf2d13d2cd92998f75b69d2a1f
     public String verMovements(Model model) {
         var movimientos = movimientoDineroService.getLstMovimientos();
         model.addAttribute("movimientos", movimientos);
