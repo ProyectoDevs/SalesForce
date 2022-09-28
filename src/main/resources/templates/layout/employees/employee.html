@@ -19,7 +19,7 @@
         <!-- End Navbar -->
         <div style="margin-top:100px;padding:25px">
             <div class="card">
-                <div class="card-header" style="background-color:  #f8f9f9 ">
+                <div class="card-header" style="background-color: #2ba9cd">
                     <div class="d-flex">
                         <div class="p-2 flex-fill"><strong><h3>Sistema de Gestión de Empleados</h3></div></strong>
 
@@ -45,17 +45,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!--CAMBIO 1 -->
-
-                        <tr th:each= "employee: ${empleados}">
-                            <th scope="row" th:text = "${employee.id}"></th>
-                            <td th:text = "${employee.name}"></td>
-                            <td th:text = "${employee.apellidos}">
-                            <td th:text = "${employee.email}"></td>
-                            <td th:text = "${employee.rol}"></td>
-
-                        </tr>
-
                         <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
@@ -92,9 +81,6 @@
                         </tr>
 
                         </tbody>
-
-
-
                     </table>
 
 

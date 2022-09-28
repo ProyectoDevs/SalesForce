@@ -3,11 +3,11 @@
         xmlns:th="http://www.thymeleaf.org" lang="es">
 
 <head th:fragment="head(title,links)">
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" th:href="@{/img/apple-icon.png}">
-  <link rel="icon" type="image/png" th:href="@{/img/favicon.png}">
-  <meta http-equiv="X-UA-Compatible" content="" />
-  <title th:text="'SalesForce -  '+${titulo}">
+      <meta charset="utf-8" />
+      <link rel="apple-touch-icon" sizes="76x76" th:href="@{/img/apple-icon.png}">
+      <link rel="icon" type="image/png" th:href="@{/img/favicon.png}">
+      <meta http-equiv="X-UA-Compatible" content="" />
+      <title th:text="'SalesForce -  '+${titulo}">
 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -42,29 +42,29 @@
         SalesForce - Devs
       </a>
     </div>
+
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li class="active ">
-          <a th:href="@{/empresas}">
-            <i class="nc-icon nc-chart-pie-36"></i>
+          <a th:href= "@{/empresas}"> <i class="nc-icon nc-chart-pie-36"> </i>
             <p>Empresas</p>
           </a>
         </li>
         <li>
-          <a th:href="@{/empleados}">
+          <a th:href= "@{/empleados}">
             <i class="nc-icon nc-single-02"></i>
             <p>Empleados</p>
           </a>
         </li>
         <li>
-          <a th:href="@{/movements}">
+          <a th:href= "@{/movimientos}">
             <i class="nc-icon nc-delivery-fast"></i>
             <p>Movimientos</p>
           </a>
         </li>
 
         <li>
-          <a href="./user.html">
+          <a href="#">
             <i class="nc-icon nc-single-02"></i>
             <p>Usuarios</p>
           </a>
@@ -72,7 +72,7 @@
       </ul>
     </div>
   </div>
-  <div class="main-panel container container-fluid" style="background-color: #0c2646">
+  <div class="main-panel">
     <!-- Navbar -->
     <nav th:fragment="navBar" class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
       <div class="container-fluid">
@@ -122,7 +122,7 @@
     </nav >
     <!-- End Navbar -->
     <!-- EQUIPO DEVS - AQUI VA MI CONTENIDO -->
-    <div class="content container-fluid" style="height: 100%">
+    <div class="content container-fluid">
       <div class="row justify-content-md-center">
         <div class="col-md-12" th:fragment="contenido">
 

@@ -21,39 +21,36 @@
         <!-- End Navbar -->
         <div style="margin-top:100px;padding:25px">
             <div class="card">
-                <div class="card-header" style="background-color: #f8f9f9" >
+                <div class="card-header" style="background-color: #2ba9cd" >
                     <div class="d-flex">
-                        <div class="p-2 flex-fill"> <strong><h3>Crear Empleado</h3></strong></div>
+                        <div class="p-2 flex-fill" <h4>Crear Empleado</h4></div>
                         <div class="p-2">
 
                         </div>
                     </div>
                 </div>
-                <div class="card-body" style="background-color: $gray-100" padding="60%">
+                <div class="card-body" style="background-color: $gray-100">
                     <!-- ZONA DE TRABAJO DE DATOS -->
-                    <div>
-                        <img src="img/empleados.png" style = "float:right"   width="20%" margin-right="inline-flex"  >
-                    </div>
 
                     <form>
                         <div class="row">
-                            <div class="form-group "style="width:20%">
-                                <label for="nombre">Nombre</label>
-                                <input th:field="*{name}" class="form-control" type="nombre"  id="nombre">
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlInput1">Nombre</label>
+                                <input type="nombre" class="form-control" id="exampleFormControlInput1" placeholder="">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="apellido">Apellidos</label>
-                                <input th:field="*{apellido}" class="form-control" type="apellido"  id="apellido">
+                                <label for="exampleFormControlInput1">Apellidos</label>
+                                <input type="apellido" class="form-control" id="exampleFormControlInput1" placeholder="">
                             </div>
                         </div>
 
-                        <div class="form-group" style="width:50%">
-                            <label for="email">Email </label>
-<!--                            <input th:field="*{email}" class="form-control" type="email"  id="email">-->
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                         </div>
-                        <div class="form-group" style="width:30%">
-                            <label for="rol">Rol</label>
-                            <select class="custom-select" id="rol">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Rol</label>
+                            <select class="custom-select" id="exampleFormControlSelect1">
 
                                 <option>Operario</option>
                                 <option>Administrador</option>
@@ -61,6 +58,10 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Comentarios/label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Guardar</button>
                         <button type="submit" class="btn btn-primary">Cancelar</button>
