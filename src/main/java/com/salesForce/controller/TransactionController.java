@@ -58,7 +58,7 @@ public class TransactionController {
     }
 
 
-    @PutMapping("/transaction")
+    @PutMapping("/update-transaction")
     public MovimientoDinero updateMovimiento(@RequestParam MovimientoDinero movimiento) {
         this.movimientoDineroService.updateMovimiento(movimiento);
         return movimiento;

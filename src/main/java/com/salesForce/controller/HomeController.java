@@ -1,6 +1,7 @@
 package com.salesForce.controller;
 
 
+import com.salesForce.entity.Employee;
 import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EmployeeService;
 import com.salesForce.service.EnterpriseService;
@@ -51,9 +52,9 @@ public class HomeController {
 
     }
 
-    @GetMapping("/icons.html")
-    public String verEmpleados(Model model) {
-
+    @GetMapping("/empleados")
+    public String verEmpleados(Model model, Employee employee) {
+        model.addAttribute("empleado", new Employee());
         return "layout/employee";
     }
     @GetMapping("/crearempleado")
