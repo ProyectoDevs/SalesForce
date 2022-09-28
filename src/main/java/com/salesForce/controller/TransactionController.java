@@ -8,6 +8,7 @@ import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.MovimientoDineroService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +47,12 @@ public class TransactionController {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/movimientos");
         return redirectView;
+    }
 
+    @GetMapping("/update-transaction")
+    public String updateMovimiento(@PathVariable("id") Long id_transaction, Model model) {
+        MovimientoDinero movimientoDinero = movimientoDineroService.getMovimientoById(id_transaction);
+        return "redirect:/movements";
     }
 
     @GetMapping("/delete-transaction/{id_transaction}")
@@ -55,13 +61,6 @@ public class TransactionController {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/movimientos");
         return redirectView;
-    }
-
-
-    @PutMapping("/update-transaction")
-    public MovimientoDinero updateMovimiento(@RequestParam MovimientoDinero movimiento) {
-        this.movimientoDineroService.updateMovimiento(movimiento);
-        return movimiento;
     }
 
     @PatchMapping("/transaction/{id_transaction}/{conceptInput}/{monto}")

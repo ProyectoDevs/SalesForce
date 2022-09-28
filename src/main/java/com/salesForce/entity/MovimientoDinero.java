@@ -1,5 +1,6 @@
 package com.salesForce.entity;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class MovimientoDinero implements Serializable {
     @Column(name = "id_transaction")
     private Long id_transaction;
 
+    @NotNull
     @Column(name = "mount")
     private float mount;
 

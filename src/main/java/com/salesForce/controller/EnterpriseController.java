@@ -26,7 +26,7 @@ public class EnterpriseController {
         return new RedirectView ("/empresas");
     }
 
-    @PostMapping("actualizarEmpresa/{id_enterprise}" )
+    @GetMapping("actualizarEmpresa/{id_enterprise}" )
     public RedirectView updateEnterprise (@PathVariable ("id_enterprise") Long id, Enterprise enterprise){
         enterpriseService.createEnterprise(enterprise);
         return new RedirectView ("/empresas");

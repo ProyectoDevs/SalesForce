@@ -26,16 +26,13 @@ public class MovimientoDineroService {
         Long datetime = System.currentTimeMillis();
         Timestamp timestamp = new Timestamp(datetime);
         nuevoMovimiento.setCreated_at(timestamp);
+        System.out.println("creando desde service");
         return this.repository.save(nuevoMovimiento);
     }
 
     // Consulta de movimiento por ID
     public MovimientoDinero getMovimientoById(Long id_transaction) {
-        try {
-            return this.repository.findById(id_transaction).get();
-        } catch (Exception e) {
-            throw new EntityNotFoundException("Error: " + e);
-        }
+        return this.repository.findById(id_transaction).get();
     }
 
     // Metodo para Eliminar un registro por ID
@@ -70,6 +67,7 @@ public class MovimientoDineroService {
                 movimiento.getEnterprise(),
                 movimiento.getCreated_at(),movimiento.getUpdated_at());
     }
+
 
 
 /*
