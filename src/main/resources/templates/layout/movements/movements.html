@@ -49,15 +49,10 @@
                             <td th:text="${movimiento.employee.nombreEmpleado}"></td>
                             <td th:text="${movimiento.mount}"></td>
                             <td>
-<<<<<<< HEAD
-                                <a th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}" class="btn btn-outline-success btn-sm">✍Editar</a>
-                                <a th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}" class="btn btn-outline-danger btn-sm">❌Eliminar</a>
-=======
                                 <a class="btn-info btn-sm" th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">
                                     <i class="fa-solid fa-browser"></i>
                                     Editar</a>
                                 <a class="btn-danger btn-sm" th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">Eliminar</a>
->>>>>>> 1934d33cd29d736d54e2b9aa0b63611d32cfe99f
                             </td>
                         </tr>
                         </tbody>
