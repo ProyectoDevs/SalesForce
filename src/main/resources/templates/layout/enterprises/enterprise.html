@@ -20,83 +20,39 @@
               <div class="d-flex">
                 <div class="p-2 flex-fill"><h4>Lista de Empresas</h4></div>
                 <div class="p-2">
-                  <a href="/crear" class="btn btn-info" btn-lg>Crear Empresa</a>
+                  <a th:href="@{/formEmpresa}" class="btn btn-info" btn-lg>Crear Empresa</a>
                 </div>
               </div>
             </div>
             <div class="d-flex gap-4 justify-content-center">
               <div class="card-body" style="background-color: white">
-              <table class="table" id="movementsTable" style="padding:20px" box-shadow="5px 5px 15px 5px #0E0C14">
-
+              <table class="table" id="enteprisesTable" style="padding:20px" box-shadow="5px 5px 15px 5px #0E0C14">
 
                   <thead class="text-primary">
                   <tr>
                     <h1>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Document</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Adress</th>
-                    <th scope="col">Opciones</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Document</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Adress</th>
+                        <th scope="col">Opciones</th>
                     </h1>
-                    <br>
-                    <br>
+
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each= "enterprise : ${empresas}">
-                    <th scope="row" th:text = "${enterprise.id}"></th>
+                <tr th:each= "enterprise : ${enterprises}">
+                    <th scope="row" th:text = "${enterprise.id_enterprise}"></th>
                     <td th:text = "${enterprise.name}"></td>
                     <td th:text = "${enterprise.document}"></td>
                     <td th:text = "${enterprise.phone}"></td>
                     <td th:text = "${enterprise.address}"></td>
+                    <td>
+                        <a th:href="@{/enterprise/editar/{id} (id = ${enterprise.id_enterprise})}" class="btn btn-outline-success">✍Editar</a>
+                        <a th:href="@{enterprise/borrar/{id} (id = ${enterprise.id_enterprise})}" class="btn btn-outline-danger">❌Eliminar</a>
+                    </td>
 
-                </tr>
-
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Movistar</td>
-                    <td>800-89078965</td>
-                    <td>3127360912</td>
-                    <td>Cra.65 # 78-89</td>
-                      <th><a class="btn-info btn-sm" href="#">
-                          <i class="nc-ruler-pencil"></i>
-                          Editar</a>
-                          <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Mingevecol</td>
-                    <td>800-89078965</td>
-                    <td>3134239076</td>
-                    <td>Calle 26 # 56-89</td>
-                      <<th><a class="btn-info btn-sm" href="#">
-                      <i class="nc-ruler-pencil"></i>
-                      Editar</a>
-                      <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Millemonti</td>
-                    <td>800-89078965</td>
-                    <td>6013777777</td>
-                    <td>Cra.30 # 45-89</td>
-                      <th><a class="btn-info btn-sm" href="#">
-                          <i class="nc-ruler-pencil"></i>
-                          Editar</a>
-                          <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ecopetrol</td>
-                    <td>800-89078965</td>
-                    <td>3176345678</td>
-                    <td>Calle 68 # 16-84</td>
-                      <th><a class="btn-info btn-sm" href="#">
-                          <i class="nc-ruler-pencil"></i>
-                          Editar</a>
-                          <a class="btn-danger btn-sm" href="#">Eliminar</a></th>
-                  </tr>
                   </tbody>
 
                 </table>
@@ -116,7 +72,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
       <script>
     $(document).ready(function() {
-		$("#movementsTable").DataTable({
+		$("#enterprisesTable").DataTable({
 		    language: {
 		        url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
 		    }

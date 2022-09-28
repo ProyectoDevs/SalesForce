@@ -1,7 +1,11 @@
 package com.salesForce.controller;
 
 
+<<<<<<< HEAD
 import com.salesForce.entity.Employee;
+=======
+import com.salesForce.entity.Enterprise;
+>>>>>>> ec5e1db005e59abf2d13d2cd92998f75b69d2a1f
 import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EmployeeService;
 import com.salesForce.service.EnterpriseService;
@@ -29,29 +33,26 @@ public class HomeController {
     @Autowired
     private EmployeeService employeeService;
 
-    // @AuthenticationPrincipal OidcUser principal
+
+    //@AuthenticationPrincipal OidcUser principal
     @GetMapping("/")
     public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
-        var titulo = "home";
+        var titulo = "Home !!!";
         log.info("saludos desde Home");
         model.addAttribute("titulo", titulo);
         return "home";
     }
 
+    // Visualizar |Empresas|Empleados|Movimientos|Usuarios|
     @GetMapping("/empresas")
     public String verEnterprise(Model model) {
         String title = "Empresas";
         model.addAttribute("title",title);
-        return "layout/enterprise";
-    }
-    @GetMapping("/crear")
-    public String crearEmpresa(Model model){
-        var titulo = "Enterprises";
-        model.addAttribute("/titulo", titulo);
-        return "crearEmpresa";
-
+        model.addAttribute("enterprises",enterpriseService.findEnterprises());
+        return "layout/enterprises/enterprise";
     }
 
+<<<<<<< HEAD
     @GetMapping("/empleados")
     public String verEmpleados(Model model, Employee employee) {
         model.addAttribute("empleado", new Employee());
@@ -64,6 +65,9 @@ public class HomeController {
 
     // Metodos para Movements - Luis Gabriel
     @GetMapping("/movements")
+=======
+    @GetMapping("/movimientos")
+>>>>>>> ec5e1db005e59abf2d13d2cd92998f75b69d2a1f
     public String verMovements(Model model) {
         var titulo = "Movimientos";
         var movimientos = movimientoDineroService.getLstMovimientos();
@@ -71,6 +75,31 @@ public class HomeController {
         model.addAttribute("titulo",titulo);
         return "layout/movements/movements";
     }
+
+    @GetMapping("/empleados")
+    public String verEmpleados(Model model) {
+        var titulo = "Empleados";
+        var empleados = employeeService.consultarEmpleados();
+        model.addAttribute("empleados", empleados);
+        model.addAttribute("titulo",titulo);
+        return "layout/employees/employee";
+    }
+
+    @GetMapping("/formEmpresa")
+    public String crearEmpresa(Model model, Enterprise enterprise){
+        var titulo = "formEmpresa";
+        model.addAttribute("enteprise",new Enterprise());
+        model.addAttribute("/titulo", titulo);
+        return "/layout/enterprises/crearEmpresa";
+    }
+
+    @GetMapping("/crearempleado")
+    public String ingresarEmpleados(Model model) {
+        return "layout/formEmployee";
+    }
+
+    // Metodos para Movements - Luis Gabriel
+
 
     @GetMapping(value="/new-movement")
     public ModelAndView newMovement(Model model, MovimientoDinero movimientoDinero) {

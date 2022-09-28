@@ -41,25 +41,25 @@
                         <div class="row mb-3">
                             <label for="nombre" class="col-sm-2 col-form-label">Nombre Empresa</label>
                                 <div class="col-sm-10">
-                                    <input th:field="*{name}" class="form-control" type="name"  id="nombre">
+                                    <input th:field="${enterprise.name}" class="form-control" type="name"  id="nombre">
                                 </div>
                                 </div>
                         <div class="row mb-3">
                             <label for="documento" class="col-sm-2 col-form-label">Documento(Nit)</label>
                                  <div class="col-sm-10">
-                                    <input th:field="*{id}" class="form-control" type="id"  id="documento">
+                                    <input th:field="${enterprise.document}" class="form-control" type="id"  id="documento">
                                  </div>
                                  </div>
                         <div class="row mb-3">
                             <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
                                  <div class="col-sm-10">
-                                    <input th:field="*{phone}" class="form-control" type="phone"  id="telefono">
+                                    <input th:field="${enterprise.phone}" class="form-control" type="phone"  id="telefono">
                                  </div>
                                  </div>
                         <div class="row mb-3">
                             <label for="direccion" class="col-sm-2 col-form-label">Direccion</label>
                                  <div class="col-sm-10">
-                                     <input th:field="*{adress}" class="form-control" type="address"  id="direccion">
+                                     <input th:field="${enterprise.address}" class="form-control" type="address"  id="direccion">
                                  </div>
                                  </div>
                         <li class="button">
