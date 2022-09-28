@@ -1,6 +1,7 @@
 package com.salesForce.controller;
 
 
+import com.salesForce.entity.Employee;
 import com.salesForce.entity.Enterprise;
 import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EmployeeService;
@@ -8,7 +9,6 @@ import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.MovimientoDineroService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -42,36 +42,54 @@ public class HomeController {
     // Visualizar |Empresas|Empleados|Movimientos|Usuarios|
     @GetMapping("/empresas")
     public String verEnterprise(Model model) {
-        String title = "Empresas";
-        model.addAttribute("title",title);
+        model.addAttribute("titulo","empresas");
         model.addAttribute("enterprises",enterpriseService.findEnterprises());
         return "layout/enterprises/enterprise";
     }
 
     @GetMapping("/movimientos")
     public String verMovements(Model model) {
-        var titulo = "Movimientos";
         var movimientos = movimientoDineroService.getLstMovimientos();
         model.addAttribute("movimientos", movimientos);
-        model.addAttribute("titulo",titulo);
+        model.addAttribute("titulo","movimientos");
         return "layout/movements/movements";
     }
 
     @GetMapping("/empleados")
     public String verEmpleados(Model model) {
-        var titulo = "Empleados";
-        var empleados = employeeService.consultarEmpleados();
-        model.addAttribute("empleados", empleados);
-        model.addAttribute("titulo",titulo);
+        model.addAttribute("employees", employeeService.consultarEmpleados());
+        model.addAttribute("titulo","Empleados");
         return "layout/employees/employee";
     }
 
     @GetMapping("/formEmpresa")
     public String crearEmpresa(Model model, Enterprise enterprise){
-        var titulo = "formEmpresa";
         model.addAttribute("enteprise",new Enterprise());
-        model.addAttribute("/titulo", titulo);
+        model.addAttribute("titulo", "formulario-Empresa");
         return "/layout/enterprises/crearEmpresa";
+    }
+
+    @GetMapping("/formEmployee")
+    public String crearEmpleado(Model model, Employee employee){
+        model.addAttribute("employee",new Employee());
+        model.addAttribute("titulo", "formulario-Empleados");
+        return "/layout/employees/formEmployee";
+    }
+
+    @GetMapping("/formActEmpresa/{id_enterprise}")
+    public String editarEmpresa (@PathVariable ("id_enterprise") Long id, Model model) {
+        model.addAttribute("enterprise", enterpriseService.findEnterprise(id) );
+        model.addAttribute("titulo","formulario-Actualiza-Empresa");
+        model.addAttribute("id_enterprise", id);
+        return "/layout/enterprises/actualizarEmpresa";
+    }
+
+    @GetMapping("/formActEmpleado/{id_employee}")
+    public String editarEmpleado (@PathVariable ("id_employee") Long id, Model model) {
+        model.addAttribute("employee", employeeService.consultarEmpleado(id) );
+        model.addAttribute("titulo","formulario-Actualiza-Empleado");
+        model.addAttribute("id_employee", id);
+        return "/layout/employees/actualizarEmpleado";
     }
 
     @GetMapping("/crearempleado")

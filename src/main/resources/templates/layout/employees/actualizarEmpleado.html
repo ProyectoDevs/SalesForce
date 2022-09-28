@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout::head(~{::title},~{::link})">
+    <title th:text="${titulo}"></title>
+</head>
+<body class="">
+<main>
+    <div class="wrapper">
+        <div class="wrapper">
+            <div th:replace="layout/layout::sidebar"></div>
+            <div class="main-panel">
+                <!-- Navbar -->
+                <nav th:replace="layout/layout::navBar"></nav>
+                <!-- End Navbar -->
+                <div style="margin-top: 100px; padding: 25px">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-body">
+                                <div class="wrapper">
+                                    <div style="margin-top: 20px; padding: 25px">
+                                        <div class="card">
+                                            <div
+                                                    class="card-header"
+                                                    style="background-color: #2ba9cd"
+                                            >
+                                                <div class="d-flex">
+                                                    <div class="p-2 flex-fill">
+                                                        <h4>Actualizar Empleado</h4>
+                                                    </div>
+                                                    <div class="p-2"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                    class="card-body"
+                                                    style="background-color: gray-100"
+                                            >
+                                                <form th:action="@{/crearEmpleado}" method="post">
+                                                    <div class="row mb-3">
+                                                        <label
+                                                                for="id_employee"
+                                                                class="col-sm-2 col-form-label"
+                                                        >Id Empleado</label
+                                                        >
+                                                        <div class="col-sm-10">
+                                                            <input
+                                                                    th:field="${employee.id_employee}"
+                                                                    class="form-control"
+                                                                    type="text"
+                                                                    id="id_employee"
+                                                            />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label
+                                                                for="nombreEmpleado"
+                                                                class="col-sm-2 col-form-label"
+                                                        >Nombre Empleado</label
+                                                        >
+                                                        <div class="col-sm-10">
+                                                            <input
+                                                                    th:field="${employee.nombreEmpleado}"
+                                                                    class="form-control"
+                                                                    type="text"
+                                                                    id="nombreEmpleado"
+                                                            />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label
+                                                                for="emailEmpleado"
+                                                                class="col-sm-2 col-form-label"
+                                                        >Email address</label
+                                                        >
+                                                        <div class="col-sm-10">
+                                                            <input
+                                                                    type="text"
+                                                                    class="form-control"
+                                                                    th:field="${employee.emailEmpleado}"
+                                                                    id="emailEmpleado"
+                                                                    placeholder="name@example.com"
+                                                            />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label
+                                                                for="role"
+                                                                class="col-sm-2 col-form-label"
+                                                        >Rol</label
+                                                        >
+                                                        <div class="col-sm-10">
+                                                            <select
+                                                                    name="rolName"
+                                                                    th:field="${employee.role}"
+                                                            >
+                                                                <option
+                                                                        th:each="rolName : ${T(com.salesForce.Enums.RolName).values()}"
+                                                                        th:value="${rolName}"
+                                                                        th:text="${rolName}"
+                                                                        id="role"
+                                                                ></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">
+                                                        💾 Guardar
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div
+                                                    class="card-footer"
+                                                    style="background-color: púrpura-100"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <footer th:include="layout/layout::footer"></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

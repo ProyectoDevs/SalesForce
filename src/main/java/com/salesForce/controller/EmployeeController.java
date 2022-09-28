@@ -1,50 +1,38 @@
 package com.salesForce.controller;
 
 import com.salesForce.entity.Employee;
+import com.salesForce.entity.Enterprise;
 import com.salesForce.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
-@RestController
+@Controller
+@RequestMapping("/")
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    // El sistema devuelve responses 200 en la ruta /enterprises con los siguientes verbos:  |GET|POST|
-    //Se puede crear un empleado segun post
-
-    @PostMapping("/user")
-    public List<Employee> crearEmpleado (@RequestBody Employee employee){
-        employeeService.crearEmpleado (employee);
-        return employeeService.consultarEmpleados ();
+    @PostMapping("/crearEmpleado")
+    public RedirectView newEmployee (Model model, Employee employee) {
+        employeeService.crearEmpleado(employee);
+        return new RedirectView("/empleados");
     }
 
-    //Se puede consultar la lista de empleados
-    @GetMapping("/user")
-    public List<Employee> consultarEmpleados (){
-        List<Employee> employee = employeeService.consultarEmpleados();
-        return employee;
-    }
-
-    // El sistema devuelve responses 200 en la ruta /enterprises/[id] con los siguientes verbos: |GET|PATCH|DELETE|
-
-    @GetMapping("/user/{id_empleado}")
-    public  Employee consultarEmpleado (@PathVariable ("id_empleado") Long id_Empleado) {
-        return employeeService.consultarEmpleado (id_Empleado) ;
-    }
-
-    @DeleteMapping("/user/{id_empleado}")
-    private List<Employee> eliminarEmpleado (@PathVariable ("id_empleado") Long id) {
+    @GetMapping("eliminarEmpleado/{id_employee}" )
+    public RedirectView deleteEmployee (@PathVariable ("id_employee") Long id){
         employeeService.borrarEmpleado(id);
-        return employeeService.consultarEmpleados();
+        return new RedirectView ("/empleados");
     }
 
-    @PatchMapping("/user/{id_empleado}/{nombreEmpleado}")
-    public Employee editarNombreEmpleado (@PathVariable ("id_empleado")Long id,@PathVariable ("nombreEmpleado") String nombreEmpleado ){
-        employeeService.editarNombreEmpleado(id,nombreEmpleado);
-        return employeeService.consultarEmpleado(id);
+    @PostMapping("actualizarEmpleado/{id_employee}" )
+    public RedirectView updateEmployee (@PathVariable ("id_employee") Long id, Employee employee){
+        employeeService.crearEmpleado(employee);
+        return new RedirectView ("/empleados");
     }
 
 }

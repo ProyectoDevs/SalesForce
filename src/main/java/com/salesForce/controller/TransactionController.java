@@ -44,7 +44,7 @@ public class TransactionController {
         log.info("Ejecutando desde CREAR");
         this.movimientoDineroService.crearMovimiento(movimientoDinero);
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/movements");
+        redirectView.setUrl("/movimientos");
         return redirectView;
 
     }
@@ -53,7 +53,7 @@ public class TransactionController {
     public RedirectView deleteMovimiento(@PathVariable("id_transaction") Long id_transaction) {
         this.movimientoDineroService.deleteMovimiento(id_transaction);
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/movements");
+        redirectView.setUrl("/movimientos");
         return redirectView;
     }
 

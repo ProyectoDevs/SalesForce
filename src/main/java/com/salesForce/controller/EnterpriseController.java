@@ -1,12 +1,10 @@
 package com.salesForce.controller;
 
 import com.salesForce.entity.Enterprise;
-import com.salesForce.entity.MovimientoDinero;
 import com.salesForce.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
@@ -20,6 +18,18 @@ public class EnterpriseController {
     public RedirectView newEnterprise (Model model, Enterprise enterprise) {
         enterpriseService.createEnterprise(enterprise);
         return new RedirectView("/empresas");
+    }
+
+    @GetMapping("eliminarEmpresa/{id_enterprise}" )
+    public RedirectView deleteEnterprise (@PathVariable ("id_enterprise") Long id){
+        enterpriseService.deleteEnterprise(id);
+        return new RedirectView ("/empresas");
+    }
+
+    @PostMapping("actualizarEmpresa/{id_enterprise}" )
+    public RedirectView updateEnterprise (@PathVariable ("id_enterprise") Long id, Enterprise enterprise){
+        enterpriseService.createEnterprise(enterprise);
+        return new RedirectView ("/empresas");
     }
 
 }

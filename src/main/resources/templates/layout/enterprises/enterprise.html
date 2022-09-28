@@ -8,8 +8,7 @@
   <link th:href="@{/datatable/dataTables.bootstrap4.min.css}" rel="stylesheet" />
 </head>
 <body class="">
-
-      <div th:replace="layout/layout::sidebar"></div>
+<div th:replace="layout/layout::sidebar"></div>
       <div class="main-panel">
         <!-- Navbar -->
         <nav th:replace="layout/layout::navBar"></nav>
@@ -20,7 +19,7 @@
               <div class="d-flex">
                 <div class="p-2 flex-fill"><h4>Lista de Empresas</h4></div>
                 <div class="p-2">
-                  <a th:href="@{/formEmpresa}" class="btn btn-info" btn-lg>Crear Empresa</a>
+                  <a th:href="@{/formEmpresa}" class="btn btn-info btn-lg">Crear Empresa</a>
                 </div>
               </div>
             </div>
@@ -35,7 +34,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Document</th>
                         <th scope="col">Phone</th>
-                        <th scope="col">Adress</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Opciones</th>
                     </h1>
 
@@ -49,8 +48,8 @@
                     <td th:text = "${enterprise.phone}"></td>
                     <td th:text = "${enterprise.address}"></td>
                     <td>
-                        <a th:href="@{/enterprise/editar/{id} (id = ${enterprise.id_enterprise})}" class="btn btn-outline-success">✍Editar</a>
-                        <a th:href="@{enterprise/borrar/{id} (id = ${enterprise.id_enterprise})}" class="btn btn-outline-danger">❌Eliminar</a>
+                        <a th:href="@{/formActEmpresa/{id_enterprise} (id_enterprise = ${enterprise.id_enterprise})}" class="btn btn-outline-success btn-sm">✍Editar</a>
+                        <a th:href="@{/eliminarEmpresa/{id_enterprise} (id_enterprise=${enterprise.id_enterprise})}" class="btn btn-outline-danger btn-sm">❌Eliminar</a>
                     </td>
 
                   </tbody>

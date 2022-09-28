@@ -16,11 +16,11 @@
         <!-- End Navbar -->
         <div style="margin-top:100px;padding:25px">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #eee6cf">
                     <div class="d-flex">
                         <div class="p-2 flex-fill"><h4>Lista de Movimientos</h4></div>
                         <div class="p-2">
-                            <a th:href="@{/new-movement}" class="btn btn-info">Nuevo</a>
+                            <a th:href="@{/new-movement}" class="btn btn-info">Crear movimiento</a>
                         </div>
                     </div>
                 </div>
@@ -49,10 +49,8 @@
                             <td th:text="${movimiento.employee.nombreEmpleado}"></td>
                             <td th:text="${movimiento.mount}"></td>
                             <td>
-                                <a class="btn-info btn-sm" th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">
-                                    <i class="nc-ruler-pencil"></i>
-                                    Editar</a>
-                                <a class="btn-danger btn-sm" th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">Eliminar</a>
+                                <a th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}" class="btn btn-outline-success btn-sm">✍Editar</a>
+                                <a th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}" class="btn btn-outline-danger btn-sm">❌Eliminar</a>
                             </td>
                         </tr>
                         </tbody>
