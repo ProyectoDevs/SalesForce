@@ -50,14 +50,20 @@ public class HomeController {
         return "crearEmpresa";
 
     }
-
-    @GetMapping("/icons.html")
+        //Empleados
+    @GetMapping("empleados")
     public String verEmpleados(Model model) {
+        String title = "Employee";
+        model.addAttribute("title",title);
 
         return "layout/employee";
     }
-    @GetMapping("/crearempleado")
+    @GetMapping("crearempleado")
     public String ingresarEmpleados(Model model) {
+        String title = "Employee";
+        model.addAttribute("title", title);
+
+
         return "layout/formEmployee";
     }
 
