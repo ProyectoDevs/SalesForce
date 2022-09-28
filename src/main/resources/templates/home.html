@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layout/layout::head(~{::title},~{::link})">
     <title th:text="${titulo}"></title>
 
@@ -11,9 +11,7 @@
             th:replace="layout/layout::sidebar">
         </div>
         <div class="main-panel">
-
             <nav th:replace="layout/layout::navBar"> </nav>
-
             <div style="margin-top:100px;padding:25px">
                 <div class="content">
                     <div class="row">
@@ -139,6 +137,10 @@
                                 <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
                             </div>
                         </div>
+                        <div sec:authorize="!isAuthenticated()">
+                            <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
                     </div>
 
                 <footer th:include="layout/layout::footer"></footer>
@@ -146,6 +148,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <script th:src="@{/js/chart.js}" type="text/javascript"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script th:inline="javascript">
@@ -180,5 +183,8 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
     }
 </script>
+=======
+    </div>
+>>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
 </body>
 </html>

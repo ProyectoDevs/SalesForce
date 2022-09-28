@@ -1,12 +1,17 @@
 package com.salesForce.controller;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
 import com.salesForce.entity.Employee;
 import com.salesForce.entity.Enterprise;
 import com.salesForce.entity.MovimientoDinero;
+import com.salesForce.entity.Profile;
 import com.salesForce.service.EmployeeService;
 import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.MovimientoDineroService;
+import com.salesForce.service.ProfileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -29,14 +34,24 @@ public class HomeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private ProfileService profileService;
 
-    //@AuthenticationPrincipal OidcUser principal
     @GetMapping("/")
     public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
+<<<<<<< HEAD
         var titulo = "Home";
         model.addAttribute("movimientos",movimientoDineroService.getLstMovimientos());
 
 
+=======
+        if (principal != null){
+            Profile profile = profileService.getOrCreateProfile(principal.getClaims());
+            model.addAttribute("profile",profile);
+        }
+        var titulo = "Home !!!";
+        log.info("saludos desde Home");
+>>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
         model.addAttribute("titulo", titulo);
         return "home";
     }
@@ -62,6 +77,13 @@ public class HomeController {
         model.addAttribute("employees", employeeService.consultarEmpleados());
         model.addAttribute("titulo","Empleados");
         return "layout/employees/employee";
+    }
+
+    @GetMapping("/usuarios")
+    public String verUsuarios(Model model) {
+        model.addAttribute("profiles", profileService.findProfiles());
+        model.addAttribute("titulo","usuarios");
+        return "layout/profiles/profile";
     }
 
     @GetMapping("/formEmpresa")
