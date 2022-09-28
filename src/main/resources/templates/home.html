@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="layout/layout::head(~{::title},~{::link})">
     <title th:text="${titulo}"></title>
 </head>
@@ -9,9 +9,7 @@
             th:replace="layout/layout::sidebar">
         </div>
         <div class="main-panel">
-
             <nav th:replace="layout/layout::navBar"> </nav>
-
             <div style="margin-top:100px;padding:25px">
                 <div class="card">
                     <div class="card-header" >
@@ -19,12 +17,17 @@
                         <div class="d-flex">
                             <div class="p-2 flex-fill"><h4>Dashboard - Devs</h4></div>
                         </div>
+                        <div sec:authorize="!isAuthenticated()">
+                            <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
                     </div>
 
                 <footer th:include="layout/layout::footer"></footer>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>
