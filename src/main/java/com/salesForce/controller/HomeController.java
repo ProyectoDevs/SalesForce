@@ -1,9 +1,5 @@
 package com.salesForce.controller;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
 import com.salesForce.entity.Employee;
 import com.salesForce.entity.Enterprise;
 import com.salesForce.entity.MovimientoDinero;
@@ -39,19 +35,13 @@ public class HomeController {
 
     @GetMapping("/")
     public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
-<<<<<<< HEAD
         var titulo = "Home";
         model.addAttribute("movimientos",movimientoDineroService.getLstMovimientos());
-
-
-=======
         if (principal != null){
             Profile profile = profileService.getOrCreateProfile(principal.getClaims());
             model.addAttribute("profile",profile);
         }
-        var titulo = "Home !!!";
         log.info("saludos desde Home");
->>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
         model.addAttribute("titulo", titulo);
         return "home";
     }
