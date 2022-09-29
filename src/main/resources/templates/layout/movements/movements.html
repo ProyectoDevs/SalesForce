@@ -50,15 +50,8 @@
                             <td th:text="${movimiento.employee.nombreEmpleado}"></td>
                             <td th:text="${movimiento.mount}"></td>
                             <td>
-<<<<<<< HEAD
                                 <a th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}" class="btn btn-outline-success btn-sm">✍Editar</a>
                                 <a th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}" onclick="return confirm('¿Eliminar Registro?');" class="btn btn-outline-danger btn-sm">❌Eliminar</a>
-=======
-                                <a class="btn-info btn-sm" th:href="@{/update-movement/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">
-                                    <i class="fa-solid fa-browser"></i>
-                                    Editar</a>
-                                <a class="btn-danger btn-sm" th:href="@{/movimientos/delete-transaction/{id_transaction} (id_transaction = ${movimiento.id_transaction})}">Eliminar</a>
->>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
                             </td>
                         </tr>
                         </tbody>
@@ -70,9 +63,6 @@
                 </div>
             </div>
         </div>
-
-
-
         <!-- FIN MODAL -->
 
         <footer th:include="layout/layout::footer"></footer>
