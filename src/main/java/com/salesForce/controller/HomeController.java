@@ -33,7 +33,7 @@ public class HomeController {
     @Autowired
     private ProfileService profileService;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String verHome(Model model, @AuthenticationPrincipal OidcUser principal) {
         var titulo = "Home";
         model.addAttribute("movimientos",movimientoDineroService.getLstMovimientos());
