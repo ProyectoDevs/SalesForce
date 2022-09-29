@@ -34,4 +34,10 @@ public class EmployeeService {
     public void borrarEmpleado (Long id_empleado) {
         employeeRepository.deleteById(id_empleado);
     }
+
+    public Integer cantidadEmpleados() {
+        var cantidad = employeeRepository.count();
+        return Math.toIntExact(cantidad);
+    }
+
 }

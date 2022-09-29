@@ -6,185 +6,105 @@
 
 </head>
 <body class="">
-    <div class="wrapper ">
-        <div
+<div class="wrapper ">
+    <div
             th:replace="layout/layout::sidebar">
-        </div>
-        <div class="main-panel">
-            <nav th:replace="layout/layout::navBar"> </nav>
-            <div style="margin-top:100px;padding:25px">
-                <div class="content">
-                    <div class="row">
-<!--                        <img th:src="@{img/LogoSF.png}" width="150" height="150" class="d-inline-block align-text-center ">-->
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                                <div class="card-body ">
-                                    <div class="row">
-                                        <div class="col-5 col-md-4">
-                                            <div class="icon-big text-center icon-warning">
-                                                <i class="nc-icon nc-globe text-warning"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 col-md-8">
-                                            <div class="numbers">
-                                                <p class="card-category">Empleados</p>
-                                                <p class="card-title">150GB<p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer ">
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-refresh"></i>
-                                        Update Now
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  segunda card -->
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                                <div class="card-body ">
-                                    <div class="row">
-                                        <div class="col-5 col-md-4">
-                                            <div class="icon-big text-center icon-warning">
-                                                <i class="nc-icon nc-money-coins text-success"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 col-md-8">
-                                            <div class="numbers">
-                                                <p class="card-category">Movimientos</p>
-                                                <p class="card-title">$ 1,345<p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer ">
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-calendar-o"></i>
-                                        Last day
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- TERCER CARD  -->
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                                <div class="card-body ">
-                                    <div class="row">
-                                        <div class="col-5 col-md-4">
-                                            <div class="icon-big text-center icon-warning">
-                                                <i class="nc-icon nc-vector text-danger"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 col-md-8">
-                                            <div class="numbers">
-                                                <p class="card-category">Empresas</p>
-                                                <p class="card-title">23<p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer ">
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i>
-                                        In the last hour
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--CUARTA CARD-->
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="card card-stats">
-                                <div class="card-body ">
-                                    <div class="row">
-                                        <div class="col-5 col-md-4">
-                                            <div class="icon-big text-center icon-warning">
-                                                <i class="nc-icon nc-favourite-28 text-primary"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 col-md-8">
-                                            <div class="numbers">
-                                                <p class="card-category">Followers</p>
-                                                <p class="card-title">+45K<p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer ">
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-refresh"></i>
-                                        Update now
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+    </div>
+    <div class="main-panel">
+        <nav th:replace="layout/layout::navBar"> </nav>
+        <div style="margin-top:100px;padding:25px">
+            <div class="content">
+                <div class="row">
+                    <!--                        <img th:src="@{img/LogoSF.png}" width="150" height="150" class="d-inline-block align-text-center ">-->
                 </div>
-                <div class="card">
-                    <div class="card-header" >
+            </div>
+            <div class="card">
+                <div class="card-header" >
 
-                        <div class="d-flex">
-                            <div class="p-2 flex-fill"><h4>Dashboard - Devs</h4></div>
-                            <div class="container-fluid">
-                                <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+                    <div class="row">
+                        <div class="p-2 flex-fill"><h4>Dashboard - Devs</h4></div>
+                        <div class="container-fluid">
+                            <div class="row" style="margin: 0 auto">
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card card-stats">
+                                        <div class="card-body ">
+                                            <div class="row">
+                                                <div class="col-5 col-md-4">
+                                                    <div class="icon-big text-center icon-warning">
+                                                        <i class="nc-icon nc-globe text-warning"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7 col-md-8">
+                                                    <div class="numbers">
+                                                        <p class="card-category">Empleados</p>
+                                                        <p class="card-title" th:text="${empleados}"><p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  segunda card -->
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card card-stats">
+                                        <div class="card-body ">
+                                            <div class="row">
+                                                <div class="col-5 col-md-4">
+                                                    <div class="icon-big text-center icon-warning">
+                                                        <i class="nc-icon nc-money-coins text-success"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7 col-md-8">
+                                                    <div class="numbers">
+                                                        <p class="card-category">Movimientos</p>
+                                                        <p class="card-title" th:text="${canMovimientos}"><p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- TERCER CARD  -->
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card card-stats">
+                                        <div class="card-body ">
+                                            <div class="row">
+                                                <div class="col-5 col-md-4">
+                                                    <div class="icon-big text-center icon-warning">
+                                                        <i class="nc-icon nc-vector text-danger"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7 col-md-8">
+                                                    <div class="numbers">
+                                                        <p class="card-category">Empresas</p>
+                                                        <p class="card-title" th:text="${cantEmpresas}"><p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer ">
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div sec:authorize="!isAuthenticated()">
-                            <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
-                        </div>
-                        <div sec:authorize="isAuthenticated()">
+                    </div>
+                    <div sec:authorize="!isAuthenticated()">
+                        <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
                     </div>
 
-                <footer th:include="layout/layout::footer"></footer>
+                    <footer th:include="layout/layout::footer"></footer>
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <script th:src="@{/js/chart.js}" type="text/javascript"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script th:inline="javascript">
-        var movimientos = [[${movimientos}]]
-    </script>
-<script>
-    google.charts.load('current', {'packages':['bar']});
-    google.charts.setOnLoadCallback(drawChart);
-
-
-
-    console.log(movimientos)
-
-    function drawChart() {
-        var data = movimientos.values(name)/*google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses', 'Profit'],
-            ['2014', 1000, 400, 200],
-            ['2015', 1170, 460, 250],
-            ['2016', 660, 1120, 300],
-            ['2017', 1030, 540, 350]
-        ]);*/
-
-        var options = {
-            chart: {
-                title: 'Company Performance',
-                subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-            }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-    }
-</script>
-=======
-    </div>
->>>>>>> 1dbcc5b0e2483c580f0890c89b05496eafd4f59a
+</div>
 </body>
 </html>

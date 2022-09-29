@@ -44,4 +44,8 @@ public class EnterpriseService {
         enterpriseRepository.deleteById(id_enterprise);
         }
 
+    public Integer cantidadEmpresas() {
+        return Math.toIntExact(enterpriseRepository.count());
+    }
+
 }

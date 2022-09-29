@@ -68,7 +68,9 @@ public class MovimientoDineroService {
                 movimiento.getCreated_at(),movimiento.getUpdated_at());
     }
 
-
+    public Integer cantidadMovimientos() {
+        return Math.toIntExact(repository.count());
+    }
 
 /*
     public List<MovimientoDinero> listOfMovements (Long id_enterprise) {

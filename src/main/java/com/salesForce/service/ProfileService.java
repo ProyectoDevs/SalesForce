@@ -1,9 +1,7 @@
 package com.salesForce.service;
 
-import com.salesForce.entity.Enterprise;
 import com.salesForce.entity.Profile;
 import com.salesForce.repository.ProfileRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,7 +35,7 @@ public class ProfileService {
             String name = (String) profileData.get("nickname");
             String image = (String) profileData.get("picture");
             String auth0Id = (String) profileData.get("sub");
-            Profile newProfile = new Profile(name, email, image, auth0Id);
+            Profile newProfile = new Profile(name=name, email=email, image=image, auth0Id=auth0Id);
             return createProfile(newProfile);
         }
         return profile;

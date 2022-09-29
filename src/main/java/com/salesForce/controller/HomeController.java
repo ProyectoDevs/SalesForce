@@ -41,8 +41,10 @@ public class HomeController {
             Profile profile = profileService.getOrCreateProfile(principal.getClaims());
             model.addAttribute("profile",profile);
         }
-        log.info("saludos desde Home");
         model.addAttribute("titulo", titulo);
+        model.addAttribute("empleados", employeeService.cantidadEmpleados());
+        model.addAttribute("canMovimientos", movimientoDineroService.cantidadMovimientos());
+        model.addAttribute("cantEmpresas",enterpriseService.cantidadEmpresas());
         return "home";
     }
 
